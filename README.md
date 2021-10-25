@@ -34,9 +34,6 @@ Công việc cụ thể bao gồm:
 
     Cả 3 thành viên họp một buổi để review phần làm của từng người
 
-TUAN 4
-
-
 
 
 
