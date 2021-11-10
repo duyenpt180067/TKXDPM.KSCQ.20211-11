@@ -1,3 +1,5 @@
+Do nhóm chưa sử dụng git thành thạo lắm nên phần Requirement Analysis của tuần 4 bị xóa mất ở nhánh master (nhưng nó vẫn còn ở trong branch release/0.0). Cô/anh/chị trợ giảng  chấm bài tập (lab00) ở nhánh release giúp chúng em ạ.
+
 
 ---
 # LAB 00 - EcoBikeRental SRS
