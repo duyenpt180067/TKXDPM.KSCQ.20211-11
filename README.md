@@ -35,10 +35,50 @@ Công việc cụ thể bao gồm:
 
     Cả 3 thành viên họp một buổi để review phần làm của từng người
 
-tuan 5
+---
+# LAB 01 - EcoBikeRental Architecture Design
+## Tasks
+Thiết kế kiến trúc Capstone Project (EcoBikeRental). 
 
+Cụ thể là: Vẽ **biểu đồ tương tác(tuần tự và giao tiếp)** và **biểu đồ lớp phân tích** cho 3 usecase
 
+- Xem thông tin xe
+- Thuê xe
+- Trả xe
 
+## Contribution
+- Thắm: làm phần **Xem thông tin xe**
+- Vân: làm phần **Thuê xe**
+- Duyên: làm phần **Trả xe**
 
+## Revisions
 
+    Cả 3 thành viên họp một buổi để review phần làm của từng người
+ 
+---
+# LAB 02 - EcoBikeRental Interface Design
+## Tasks
+Thiết kế user interface và system interface cho hệ thống EcoBikeRental. 
 
+Thiết kế interface cho các màn hình sau:
+    (1): HomeScreen
+    (2): DockViewScreen
+    (3): BikeInfoScreen
+    (4): PaymentScreen-RentBike
+    (5): ResultScreen
+    (6): RentedBikeInfoScreen
+    (7): ReturnBikeScreen
+    (8): PaymentScreen-ReturnBike
+
+Thiết kế InterBank interface 
+
+## Contribution
+- Thắm: (2), (4), (8), (5)
+- Vân: (6), (7) 
+- Duyên: (1), (3)
+- Cả ba làm: Biểu đồ chuyển giao diện + thiết kế Interbak interface
+
+## Revisions
+
+    Cả 3 thành viên họp một buổi để review phần làm của từng người
+ 
