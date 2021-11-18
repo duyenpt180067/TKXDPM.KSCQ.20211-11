@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="85.0" prefWidth="1366.0" style="-fx-background-color: #84ba42;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="87.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/logo-icon.PNG" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 24px;" text="EcobikeRental - Dịch vụ cho thuê xe đạp Ecopark tiện ích" wrappingWidth="650.763671875" />
+         </children>
+      </HBox>
+      <Pane layoutY="85.0" prefHeight="274.0" prefWidth="1366.0" style="-fx-border-color: #e5e5e5;" AnchorPane.leftAnchor="0.0">
+         <children>
+            <Pane layoutX="129.0" layoutY="40.0" prefHeight="208.0" prefWidth="593.0" style="-fx-border-color: #f0a902; -fx-border-width: 2px;">
+               <children>
+                  <Text layoutX="31.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Bãi xe số 1" wrappingWidth="211.0" />
+                  <Text layoutX="32.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Địa chỉ" wrappingWidth="96.21484375" />
+                  <Text layoutX="179.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Khu 12, Đường Minh Xuân, khu đô thị EcoPark" wrappingWidth="327.41485595703125" />
+                  <Text layoutX="32.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Diện tích" wrappingWidth="96.21484375" />
+                  <Text layoutX="174.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="100m2" wrappingWidth="96.21484375" />
+                  <Text layoutX="31.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Số lượng xe" wrappingWidth="141.8148193359375" />
+                  <Text layoutX="173.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="20" wrappingWidth="96.21484375" />
+                  <Text layoutX="276.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Số ô xe trống" wrappingWidth="154.6148681640625" />
+                  <Text layoutX="473.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="5" wrappingWidth="134.21484375" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane layoutY="377.0" prefHeight="394.0" prefWidth="1346.0">
+         <children>
+            <Pagination layoutX="1184.0" layoutY="320.0" prefHeight="87.0" prefWidth="134.0" />
+            <GridPane layoutX="130.0" layoutY="14.0" prefHeight="340.0" prefWidth="1180.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Pane prefHeight="101.0" prefWidth="252.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="31.0" style="-fx-background-color: #84ba42;" text="1" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Text layoutX="76.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-style: bold;" text="Xe đạp điện đơn" wrappingWidth="166.6148681640625">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Text>
+                        <Text layoutX="14.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Biển: " wrappingWidth="48.21484375" />
+                        <Text layoutX="76.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-style: bold;" text="MĐ2345" wrappingWidth="109.8148193359375">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Text>
+                        <Text layoutX="14.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pin:" wrappingWidth="48.21484375" />
+                        <Text layoutX="76.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-style: bold;" text="100%" wrappingWidth="109.8148193359375">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Text>
+                        <Button layoutX="170.0" layoutY="110.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="111.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold;" text="Xem chi tiết" textFill="WHITE" />
+                     </children>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </Pane>
+                  <Pane prefHeight="101.0" prefWidth="252.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="31.0" style="-fx-background-color: #84ba42;" text="2" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Text layoutX="71.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-style: bold;" text="Xe đạp thường đôi" wrappingWidth="178.61485290527344">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Text>
+                        <Text layoutX="14.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Biển: " wrappingWidth="48.21484375" />
+                        <Text layoutX="71.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-style: bold;" text="MĐ2345" wrappingWidth="109.8148193359375">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Text>
+                        <Text layoutX="14.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pin:" wrappingWidth="48.21484375" />
+                        <Button layoutX="170.0" layoutY="107.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="111.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold;" text="Xem chi tiết" textFill="WHITE" />
+                        <Text layoutX="71.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-style: bold;" text="Không có" wrappingWidth="109.81481933593739">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </Pane>
+                  <Pane prefHeight="101.0" prefWidth="252.0" GridPane.columnIndex="2">
+                     <children>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="31.0" style="-fx-background-color: #84ba42;" text="3" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Text layoutX="71.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-style: bold;" text="Trống" wrappingWidth="178.61485290527344">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Text>
+                        <Text layoutX="14.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Biển: " wrappingWidth="48.21484375" />
+                        <Text layoutX="71.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" wrappingWidth="109.8148193359375" />
+                        <Text layoutX="14.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pin:" wrappingWidth="48.21484375" />
+                     </children>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </Pane>
+                  <Pane prefHeight="101.0" prefWidth="252.0" GridPane.columnIndex="3">
+                     <children>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="31.0" style="-fx-background-color: #84ba42;" text="4" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Text layoutX="71.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-style: bold;" text="Trống" wrappingWidth="178.61485290527344">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Text>
+                        <Text layoutX="14.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Biển: " wrappingWidth="48.21484375" />
+                        <Text layoutX="71.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" wrappingWidth="109.8148193359375" />
+                        <Text layoutX="14.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pin:" wrappingWidth="48.21484375" />
+                     </children>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </Pane>
+                  <Pane prefHeight="101.0" prefWidth="252.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="31.0" style="-fx-background-color: #84ba42;" text="5" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Text layoutX="71.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-style: bold;" text="Trống" wrappingWidth="178.61485290527344">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Text>
+                        <Text layoutX="14.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Biển: " wrappingWidth="48.21484375" />
+                        <Text layoutX="71.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" wrappingWidth="109.8148193359375" />
+                        <Text layoutX="14.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pin:" wrappingWidth="48.21484375" />
+                     </children>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </Pane>
+                  <Pane prefHeight="101.0" prefWidth="252.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="31.0" style="-fx-background-color: #84ba42;" text="6" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Text layoutX="71.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-style: bold;" text="Xe đạp thường đôi" wrappingWidth="178.61485290527344">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Text>
+                        <Text layoutX="14.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Biển: " wrappingWidth="48.21484375" />
+                        <Text layoutX="71.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-style: bold;" text="MĐ2222" wrappingWidth="109.8148193359375">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Text>
+                        <Text layoutX="14.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pin:" wrappingWidth="48.21484375" />
+                        <Button layoutX="170.0" layoutY="106.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="111.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold;" text="Xem chi tiết" textFill="WHITE" />
+                     </children>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </Pane>
+                  <Pane prefHeight="101.0" prefWidth="252.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="31.0" style="-fx-background-color: #84ba42;" text="7" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Text layoutX="76.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-style: bold;" text="Xe đạp điện đơn" wrappingWidth="166.6148681640625">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Text>
+                        <Text layoutX="14.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Biển: " wrappingWidth="48.21484375" />
+                        <Text layoutX="76.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-style: bold;" text="MĐ2311" wrappingWidth="109.8148193359375">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Text>
+                        <Text layoutX="14.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pin:" wrappingWidth="48.21484375" />
+                        <Text layoutX="76.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-style: bold;" text="20%" wrappingWidth="109.8148193359375">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Text>
+                        <Button layoutX="159.0" layoutY="106.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="111.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold;" text="Xem chi tiết" textFill="WHITE" />
+                     </children>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </Pane>
+                  <Pane prefHeight="101.0" prefWidth="252.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <children>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="31.0" style="-fx-background-color: #84ba42;" text="8" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Text layoutX="76.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-style: bold;" text="Xe đạp điện đơn" wrappingWidth="166.6148681640625">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Text>
+                        <Text layoutX="14.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Biển: " wrappingWidth="48.21484375" />
+                        <Text layoutX="76.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-style: bold;" text="MĐ2121" wrappingWidth="109.8148193359375">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Text>
+                        <Text layoutX="14.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pin:" wrappingWidth="48.21484375" />
+                        <Text layoutX="76.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px; -fx-font-style: bold;" text="0%" wrappingWidth="109.8148193359375">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Text>
+                        <Button layoutX="170.0" layoutY="106.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="111.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold;" text="Xem chi tiết" textFill="WHITE" />
+                     </children>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </Pane>
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
