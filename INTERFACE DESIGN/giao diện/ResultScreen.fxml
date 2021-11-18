@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<DialogPane prefHeight="569.0" prefWidth="543.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <Pane prefHeight="489.0" prefWidth="543.0">
+         <children>
+            <ImageView fitHeight="42.0" fitWidth="41.0" layoutX="149.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/ok.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="206.0" layoutY="29.0" prefHeight="44.0" prefWidth="214.0" text="Giao dịch thành công">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Pane layoutX="58.0" layoutY="98.0" prefHeight="359.0" prefWidth="448.0">
+               <children>
+                  <Label layoutX="35.0" layoutY="22.0" prefHeight="44.0" prefWidth="186.0" text="Thời gian thanh toán">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="235.0" layoutY="22.0" prefHeight="44.0" prefWidth="177.0" text="09:20 - 11/11/2021">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="37.0" layoutY="59.0" prefHeight="44.0" prefWidth="140.0" text="Mã giao dịch">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="234.0" layoutY="57.0" prefHeight="44.0" prefWidth="140.0" text="01234523MD2D">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="38.0" layoutY="173.0" prefHeight="44.0" prefWidth="140.0" text="Dịch vụ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="235.0" layoutY="173.0" prefHeight="44.0" prefWidth="191.0" text="Thuê xe đạp điện đơn">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="38.0" layoutY="217.0" prefHeight="44.0" prefWidth="140.0" text="Số tiền">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="235.0" layoutY="217.0" prefHeight="44.0" prefWidth="191.0" text="33, 000 VND">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="42.0" layoutY="252.0" prefHeight="44.0" prefWidth="169.0" text="Nội dung giao dịch:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="88.0" layoutY="296.0" prefHeight="48.0" prefWidth="356.0" text="Thanh toán tiền thuê xe EcoPark">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="35.0" layoutY="94.0" prefHeight="44.0" prefWidth="140.0" text="Tài khoản">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="234.0" layoutY="91.0" prefHeight="51.0" prefWidth="239.0" text="192323232 NGUYEN VAN AN">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="38.0" layoutY="134.0" prefHeight="44.0" prefWidth="140.0" text="Ngân hàng">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="234.0" layoutY="131.0" prefHeight="51.0" prefWidth="239.0" text="VietinBank">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </content>
+</DialogPane>
