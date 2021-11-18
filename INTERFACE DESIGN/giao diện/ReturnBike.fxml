@@ -58,20 +58,20 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Tên" />
-                  <Label text="Số xe hiện tại" GridPane.rowIndex="3" />
-                  <Label text="Diện tích" GridPane.rowIndex="2" />
-                  <Label text="Địa chỉ" GridPane.rowIndex="1" />
-                  <Label text="Số chỗ trống" GridPane.rowIndex="4" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bãi xe 1" GridPane.columnIndex="1">
+                  <Label style="-fx-font-size: 15;" text="Tên" />
+                  <Label style="-fx-font-size: 15;" text="Số xe hiện tại" GridPane.rowIndex="3" />
+                  <Label style="-fx-font-size: 15;" text="Diện tích" GridPane.rowIndex="2" />
+                  <Label style="-fx-font-size: 15;" text="Địa chỉ" GridPane.rowIndex="1" />
+                  <Label style="-fx-font-size: 15;" text="Số chỗ trống" GridPane.rowIndex="4" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 15;" text="Bãi xe 1" GridPane.columnIndex="1">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="23 Hai Bà Trưng" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 15;" text="23 Hai Bà Trưng" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="100m2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="102" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="18" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 15;" text="102" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 15;" text="18" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                </children>
             </GridPane>
          </children>
@@ -161,12 +161,12 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="-2.0" layoutY="257.0" prefHeight="40.0" prefWidth="269.0">
                      <children>
-                        <Label prefHeight="20.0" prefWidth="200.0" text="Bãi xe 7" textFill="WHITE">
+                        <Label prefHeight="20.0" prefWidth="200.0" text="Bãi xe 7">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="49.0" style="-fx-background-color: #4484e3;" text="Xem" />
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="49.0" style="-fx-background-color: #4484e3;" text="Xem" textFill="WHITE" />
                      </children>
                      <padding>
                         <Insets left="10.0" />
