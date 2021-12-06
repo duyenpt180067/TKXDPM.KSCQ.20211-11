@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="85.0" prefWidth="1366.0" style="-fx-background-color: #84ba42;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="87.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/logo-icon.PNG" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 24px;" text="EcobikeRental - Dịch vụ cho thuê xe đạp Ecopark tiện ích" wrappingWidth="650.763671875" />
+         </children>
+      </HBox>
+      <Pane layoutY="85.0" prefHeight="140.0" prefWidth="1366.0" style="-fx-border-color: #e5e5e5;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="85.0">
+         <children>
+            <ImageView fitHeight="119.0" fitWidth="273.0" layoutX="26.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/head-icon.PNG" />
+               </image>
+            </ImageView>
+            <Text layoutX="495.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tìm kiếm theo mã code" />
+            <TextField layoutX="495.0" layoutY="66.0" prefHeight="41.0" prefWidth="439.0" promptText="Nhập mã code">
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </TextField>
+            <Button layoutX="970.0" layoutY="69.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="103.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold;" text="Search" textFill="WHITE" />
+         </children>
+      </Pane>
+      <HBox layoutY="257.0" prefHeight="150.0" prefWidth="1366.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="257.0">
+         <children>
+            <Pane prefHeight="150.0" prefWidth="391.0">
+               <children>
+                  <ImageView fitHeight="152.0" fitWidth="222.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/dock1.PNG" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="222.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Bãi xe số 1" />
+                  <Text layoutX="322.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="20" />
+                  <Text layoutX="222.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượng xe:" wrappingWidth="89.21484375" />
+                  <Text layoutX="222.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vị trí bãi" wrappingWidth="89.21484375" />
+                  <Button layoutX="217.0" layoutY="101.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="111.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold;" text="Xem chi tiết" textFill="WHITE" />
+               </children>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="150.0" prefWidth="391.0">
+               <children>
+                  <ImageView fitHeight="152.0" fitWidth="222.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/dock1.PNG" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="222.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Bãi xe số 2" />
+                  <Text layoutX="322.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="20" />
+                  <Text layoutX="222.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượng xe:" wrappingWidth="89.21484375" />
+                  <Text layoutX="222.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vị trí bãi" wrappingWidth="89.21484375" />
+                  <Button layoutX="217.0" layoutY="101.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="111.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold;" text="Xem chi tiết" textFill="WHITE" />
+               </children>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="150.0" prefWidth="391.0">
+               <children>
+                  <ImageView fitHeight="152.0" fitWidth="222.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/dock1.PNG" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="222.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Bãi xe số 3" />
+                  <Text layoutX="322.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="20" />
+                  <Text layoutX="222.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượng xe:" wrappingWidth="89.21484375" />
+                  <Text layoutX="222.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vị trí bãi" wrappingWidth="89.21484375" />
+                  <Button layoutX="217.0" layoutY="101.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="111.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold;" text="Xem chi tiết" textFill="WHITE" />
+               </children>
+            </Pane>
+         </children>
+         <padding>
+            <Insets left="50.0" right="50.0" />
+         </padding>
+      </HBox>
+      <HBox layoutY="478.0" prefHeight="150.0" prefWidth="1366.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="478.0">
+         <padding>
+            <Insets left="50.0" right="50.0" />
+         </padding>
+         <children>
+            <Pane prefHeight="150.0" prefWidth="391.0">
+               <children>
+                  <ImageView fitHeight="152.0" fitWidth="222.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/dock1.PNG" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="222.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Bãi xe số 4" />
+                  <Text layoutX="322.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="20" />
+                  <Text layoutX="222.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượng xe:" wrappingWidth="89.21484375" />
+                  <Text layoutX="222.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vị trí bãi" wrappingWidth="89.21484375" />
+                  <Button layoutX="217.0" layoutY="101.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="111.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold;" text="Xem chi tiết" textFill="WHITE" />
+               </children>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="150.0" prefWidth="391.0">
+               <children>
+                  <ImageView fitHeight="152.0" fitWidth="222.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/dock1.PNG" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="222.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Bãi xe số 5" />
+                  <Text layoutX="322.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="20" />
+                  <Text layoutX="222.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượng xe:" wrappingWidth="89.21484375" />
+                  <Text layoutX="222.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vị trí bãi" wrappingWidth="89.21484375" />
+                  <Button layoutX="217.0" layoutY="101.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="111.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold;" text="Xem chi tiết" textFill="WHITE" />
+               </children>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="150.0" prefWidth="391.0">
+               <children>
+                  <ImageView fitHeight="152.0" fitWidth="222.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/dock1.PNG" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="222.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Bãi xe số 6" />
+                  <Text layoutX="322.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="20" />
+                  <Text layoutX="222.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượng xe:" wrappingWidth="89.21484375" />
+                  <Text layoutX="222.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vị trí bãi" wrappingWidth="89.21484375" />
+                  <Button layoutX="217.0" layoutY="101.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="111.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold;" text="Xem chi tiết" textFill="WHITE" />
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+      <Pane prefHeight="135.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Pagination layoutX="1061.0" layoutY="37.0" prefHeight="63.0" prefWidth="200.0" />
+            <Button layoutX="65.0" layoutY="47.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="219.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold;" text="Xem thông tin xe đang thuê" textFill="WHITE" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
