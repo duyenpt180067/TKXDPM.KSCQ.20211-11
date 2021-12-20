@@ -1,9 +1,19 @@
 package controller;
 
+import java.util.Calendar;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.logging.Logger;
+
+import common.exception.InvalidCardException;
 import common.exception.InvalidFormInputException;
 import common.exception.PaymentException;
 import common.exception.UnknownException;
+import common.exception.UnrecognizedException;
 import entity.payment.PaymentTransaction;
+import subsystem.InterbankInterface;
+import subsystem.InterbankSubsystem;
+import utils.Utils;
 import entity.payment.CreditCard;
 import entity.payment.Invoice;
 
@@ -12,6 +22,11 @@ import entity.payment.Invoice;
  * and between ecobike system and Interbank Interface
  */
 public class PaymentController extends BaseController{
+	
+	private static Logger LOGGER = Utils.getLogger(PaymentController.class.getName());
+	
+	private CreditCard card;
+	private InterbankInterface interbank;
 	/**
 	 * Forward payment request to InterBank and receive its result as payment transaction
 	 * @param creditCard - card used for payment
@@ -20,8 +35,34 @@ public class PaymentController extends BaseController{
 	 * @throws PaymentException if response has predefined error code
 	 * @throws UnknownException if error code is unknown or something goes wrong
 	 */
-	public PaymentTransaction processPayment(CreditCard creditCard, Invoice invoice) throws PaymentException, UnknownException {
+	
+	
+	
+	
+	public PaymentTransaction processPayment(CreditCard creditCard, Invoice invoice)  {
+		
 		return null;
+	}
+	
+	public Map<String, String> payOrder(int amount, String contents, String cardNumber, String cardHolderName,
+			String expirationDate, String securityCode) throws UnknownException, Exception {
+		Map<String, String> result = new Hashtable<String, String>();
+		result.put("RESULT", "PAYMENT FAILED!");
+		try {
+			this.card = new CreditCard(cardNumber, cardHolderName, Integer.parseInt(securityCode),
+					getExpirationDate(expirationDate));
+			LOGGER.info("create card"+this.card.toString());
+			
+
+			this.interbank = new InterbankSubsystem();
+			PaymentTransaction transaction = interbank.payOrder(card, amount, contents);
+
+			result.put("RESULT", "PAYMENT SUCCESSFUL!");
+			result.put("MESSAGE", "You have succesffully paid the order!");
+		} catch (PaymentException | UnknownError ex) {
+			result.put("MESSAGE", ex.getMessage());
+		}
+		return result;
 	}
 
 	/**
@@ -32,4 +73,30 @@ public class PaymentController extends BaseController{
 	public int validatePaymentForm(CreditCard info) throws InvalidFormInputException {
 		return 0;
 	}
+	
+	private String getExpirationDate(String date) throws InvalidCardException {
+		String[] strs = date.split("/");
+		if (strs.length != 2) {
+			throw new InvalidCardException();
+		}
+
+		String expirationDate = null;
+		int month = -1;
+		int year = -1;
+
+		try {
+			month = Integer.parseInt(strs[0]);
+			year = Integer.parseInt(strs[1]);
+			if (month < 1 || month > 12 || year < Calendar.getInstance().get(Calendar.YEAR) % 100 || year > 100) {
+				throw new InvalidCardException();
+			}
+			expirationDate = strs[0] + strs[1];
+
+		} catch (Exception ex) {
+			throw new InvalidCardException();
+		}
+
+		return expirationDate;
+	}
+
 }
