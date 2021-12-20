@@ -1,21 +1,22 @@
+import java.sql.SQLException;
+
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
+import utils.Configs;
+import view.handler.home.HomeScreenHandler;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+    	
+    	HomeScreenHandler homeHandler = new HomeScreenHandler(primaryStage, Configs.HOME_PATH);
+        homeHandler.setScreenTitle("Home Screen");
+        homeHandler.show();
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         launch(args);
     }
 }
