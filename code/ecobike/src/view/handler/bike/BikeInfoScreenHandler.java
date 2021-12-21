@@ -40,6 +40,12 @@ public class BikeInfoScreenHandler extends BaseScreenHandler {
 		setBikeInfo(bike);
 	}
 
+	/***
+	 * set value to bike
+	 * @param bike
+	 * @throws SQLException if connect to db fail
+	 * @throws EntityNotFoundException if not found bike
+	 */
 	private void setBikeInfo(Bike bike) throws SQLException, EntityNotFoundException {
 		bikeTypeText.setText(bike.getType());
 		licenseText.setText(bike.getLicensePlate());

@@ -53,6 +53,11 @@ public class DockViewScreenHandler extends BaseScreenHandler {
 		populateCellsToVBox(cellList, cellsVbox);
 	}
 
+	/***
+	 * set value to dock
+	 * @param dock
+	 * @throws SQLException if connect to db fail
+	 */
 	private void setDockInfo(Dock dock) throws SQLException {
 		File file = new File(dock.getImagePath());
 		Image image = new Image(file.toURI().toString());
@@ -69,6 +74,13 @@ public class DockViewScreenHandler extends BaseScreenHandler {
 		numEmptyCellText.setText(String.valueOf(numCell - numBike));
 	}
 
+	/***
+	 * add cells to vbox in screen
+	 * @param cellList
+	 * @param vBox
+	 * @throws IOException 
+	 * @throws SQLException
+	 */
 	private void populateCellsToVBox(List<Cell> cellList, VBox vBox) throws IOException, SQLException {
 		for (int i = 0; i < cellList.size(); i += CELL_ROW_SIZE){
 			HBox rowHbox = new HBox();

@@ -12,11 +12,6 @@ public class Invoice {
 	private int amount;
 
 	private RentInfo rentInfo;
-	
-	
-	
-	
-	
 
 	public Invoice(String content, int amount, RentInfo rentInfo) {
 		super();

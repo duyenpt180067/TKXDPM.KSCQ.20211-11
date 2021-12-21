@@ -56,6 +56,11 @@ public class CellHandler extends FXMLScreenHandler {
         });
     }
 
+    /***
+	 * set value to cell
+	 * @param cell
+	 * @throws SQLException if connect to db fail
+	 */
     private void setCellInfo(Cell cell) throws SQLException {
         noLabel.setText(String.valueOf(cell.getNo()));
         Bike bike = cell.getBike();

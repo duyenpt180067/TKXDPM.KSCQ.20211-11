@@ -1,6 +1,10 @@
 package controller;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -70,8 +74,90 @@ public class PaymentController extends BaseController{
 	 * @return 1 if all fields are filled with valid input
 	 * @throws InvalidFormInputException if any required field is empty or input is invalid
 	 */
-	public int validatePaymentForm(CreditCard info) throws InvalidFormInputException {
-		return 0;
+	public boolean validatePaymentForm(CreditCard info) throws InvalidFormInputException {
+		return true;
+	}
+	
+	/***
+	 * validate date or expiration date
+	 * @param date
+	 * @return
+	 */
+	public boolean validateDate(String date, boolean isExpirationDate) {
+    	if(date == null || date.trim().isEmpty() ) {
+    		return false;
+    	}
+    	else {
+    		if (date.matches("([0-9]{2})/([0-9]{2})/([0-9]{4})"))
+    			if(isExpirationDate) {
+    				String[] eDate = date.split("/");
+    				String pattern = "dd-MM-yyyy";
+    				String now = new SimpleDateFormat(pattern).format(new Date());
+    				String[] eNow = now.split("-");
+					if ((eDate[2].compareTo(eNow[2]) < 0) 
+							|| ((eDate[2].compareTo(eNow[2]) == 0) && (eDate[1].compareTo(eNow[1]) < 0))
+							|| ((eDate[2].compareTo(eNow[2]) == 0) && (eDate[1].compareTo(eNow[1]) == 0) && (eDate[0].compareTo(eNow[0]) < 0))) {
+						return false;
+					}
+					else {
+						return true;
+					}
+    			}
+    			else return true;
+    		else
+    		   return false;
+    	}
+    }
+	
+	/***
+	 * validate card number
+	 * @param cardNumber
+	 * @return
+	 */
+	public boolean validateCardNumber(String cardNumber) {
+    	if(cardNumber == null || cardNumber.trim().isEmpty() || cardNumber.length() > 50) {
+    		return false;
+    	}
+    	else {
+    		if (cardNumber.matches("([a-z0-9_-]){1,50}"))
+    		    return true;
+    		else
+    		   return false;
+    	}
+    }
+	
+	/***
+	 * validate name
+	 * @param name
+	 * @return
+	 */
+	public boolean validateName(String name) {
+    	if(name == null || name.trim().isEmpty() || name.length() > 20) {
+    		return false;
+    	}
+    	else {
+    		if (name.matches("([a-z0-9_-]){1,20}"))
+    		    return true;
+    		else
+    		   return false;
+    	}
+    }
+	
+	/***
+	 * validate cvv number
+	 * @param cvv
+	 * @return
+	 */
+	public boolean validateCVVNumber(String cvv) {
+		if(cvv == null || cvv.trim().isEmpty() || cvv.length() > 20) {
+    		return false;
+    	}
+    	else {
+    		if (cvv.matches("([0-9]){1,20}"))
+    		    return true;
+    		else
+    		   return false;
+    	} 
 	}
 	
 	private String getExpirationDate(String date) throws InvalidCardException {
