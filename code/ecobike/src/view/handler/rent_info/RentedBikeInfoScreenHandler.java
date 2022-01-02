@@ -110,8 +110,7 @@ public class RentedBikeInfoScreenHandler extends BaseScreenHandler{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 	}
 	
 /**

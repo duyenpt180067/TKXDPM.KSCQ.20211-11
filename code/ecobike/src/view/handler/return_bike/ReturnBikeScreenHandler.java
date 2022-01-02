@@ -41,9 +41,9 @@ public class ReturnBikeScreenHandler extends BaseScreenHandler {
 	Button returnBikeBtn;
 	
 	ReturnBikeScreenHandler bController;
-/**
- * Display info in screen
- */
+	/**
+	 * Display info in screen
+	 */
 	public void display() {
 		displayDockList();
 		
@@ -109,9 +109,9 @@ public class ReturnBikeScreenHandler extends BaseScreenHandler {
 		cellId.setText(Integer.toString(id));
 	}
 	
-/**
- * Process when user choose a cell
- */
+	/**
+	 * Process when user choose a cell
+	 */
 	public void handleReturnBikeBtnClick() {
 //		tinh tien thue xe
 //		create invoice
@@ -119,7 +119,7 @@ public class ReturnBikeScreenHandler extends BaseScreenHandler {
 		try {
 			Invoice invoice = getBController().createInvoice();
 			PaymentReturnBikeHandler paymentReturnBikeHandler;
-			paymentReturnBikeHandler = new PaymentReturnBikeHandler(stage, Configs.PAYMENT_SCREEN_RETURN_BIKE_PATH,invoice );
+			paymentReturnBikeHandler = new PaymentReturnBikeHandler(stage, Configs.PAYMENT_SCREEN_RETURN_BIKE_PATH, invoice);
 			paymentReturnBikeHandler.show();
 			paymentReturnBikeHandler.display();
 		} catch (IOException e) {

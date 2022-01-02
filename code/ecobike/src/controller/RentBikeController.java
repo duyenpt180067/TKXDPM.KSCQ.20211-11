@@ -1,12 +1,10 @@
 package controller;
 
-import java.security.Timestamp;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import entity.rental.RentInfo;
 import utils.Configs;
@@ -52,7 +50,7 @@ public class RentBikeController {
 		Map<String, String> infoMap = new HashMap<String, String>();
 		infoMap.put("imagePath", rentInfo.getBike().getImagePath());
 		infoMap.put("name", "Xe số: " + rentInfo.getBike().getId());
-		infoMap.put("type", rentInfo.getBike().getType());
+		infoMap.put("type", rentInfo.getBike().getName());
 		
 		LocalDateTime nowDateTime = LocalDateTime.now();
 		String nowString = nowDateTime.toString();	
@@ -86,9 +84,4 @@ public class RentBikeController {
 		
 		
 	}
-	
-	
-	
-
-	
 }

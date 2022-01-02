@@ -1,10 +1,7 @@
 package controller;
 
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.List;
-
-import javax.swing.plaf.basic.BasicToolBarUI.DockingListener;
 
 import common.exception.EntityNotFoundException;
 import entity.dockbike.Bike;
@@ -59,7 +56,7 @@ public class ReturnBikeController extends BaseController {
 	
 	public List<Cell> getEmptyCellIndock(Dock dock) throws EntityNotFoundException, SQLException {
 		getRentInfo();
-		return Cell.getEmptyCellInDockForBike(dock.getId(), rentInfo.getBike().getType());
+		return Cell.getEmptyCellInDockForBike(dock.getId(), rentInfo.getBike().getName());
 		
 	}
 	
