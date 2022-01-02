@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -8,8 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="10.0" layoutY="10.0" prefHeight="489.0" prefWidth="543.0" style="-fx-border-color: #f0a902; -fx-border-width: 2px;" AnchorPane.leftAnchor="411.0" AnchorPane.rightAnchor="411.79999999999995">
          <children>
@@ -18,24 +22,24 @@
                   <Image url="@../image/ok.png" />
                </image>
             </ImageView>
-            <Label fx:id="result" layoutX="206.0" layoutY="29.0" prefHeight="44.0" prefWidth="214.0" text="Giao dịch thành công">
+            <Label fx:id="result" layoutX="206.0" layoutY="29.0" prefHeight="44.0" prefWidth="214.0" text="Giao dá»‹ch thÃ nh cÃ´ng">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <Pane layoutX="58.0" layoutY="98.0" prefHeight="359.0" prefWidth="448.0">
                <children>
-                  <Label layoutX="35.0" layoutY="22.0" prefHeight="44.0" prefWidth="186.0" text="Thời gian thanh toán">
+                  <Label layoutX="35.0" layoutY="22.0" prefHeight="44.0" prefWidth="186.0" text="Thá»�i gian thanh toÃ¡n">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="time" layoutX="235.0" layoutY="22.0" prefHeight="44.0" prefWidth="177.0" text="09:20 - 11/11/2021">
+                  <Label fx:id="" layoutX="235.0" layoutY="22.0" prefHeight="44.0" prefWidth="177.0" text="09:20 - 11/11/2021">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="37.0" layoutY="59.0" prefHeight="44.0" prefWidth="140.0" text="Mã giao dịch">
+                  <Label layoutX="37.0" layoutY="59.0" prefHeight="44.0" prefWidth="140.0" text="MÃ£ giao dá»‹ch">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -45,17 +49,17 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="38.0" layoutY="173.0" prefHeight="44.0" prefWidth="140.0" text="Dịch vụ">
+                  <Label layoutX="38.0" layoutY="173.0" prefHeight="44.0" prefWidth="140.0" text="Dá»‹ch vá»¥">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="service" layoutX="235.0" layoutY="173.0" prefHeight="44.0" prefWidth="191.0" text="Thuê xe đạp điện đơn">
+                  <Label fx:id="service" layoutX="235.0" layoutY="173.0" prefHeight="44.0" prefWidth="191.0" text="ThuÃª xe Ä‘áº¡p Ä‘iá»‡n Ä‘Æ¡n">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="38.0" layoutY="217.0" prefHeight="44.0" prefWidth="140.0" text="Số tiền">
+                  <Label layoutX="38.0" layoutY="217.0" prefHeight="44.0" prefWidth="140.0" text="Sá»‘ tiá»�n">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -65,17 +69,17 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="42.0" layoutY="252.0" prefHeight="44.0" prefWidth="169.0" text="Nội dung giao dịch:">
+                  <Label layoutX="42.0" layoutY="252.0" prefHeight="44.0" prefWidth="169.0" text="Ná»™i dung giao dá»‹ch:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="content" layoutX="88.0" layoutY="296.0" prefHeight="48.0" prefWidth="356.0" text="Thanh toán tiền thuê xe EcoPark">
+                  <Label fx:id="content" layoutX="88.0" layoutY="296.0" prefHeight="48.0" prefWidth="356.0" text="Thanh toÃ¡n tiá»�n thuÃª xe EcoPark">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="35.0" layoutY="94.0" prefHeight="44.0" prefWidth="140.0" text="Tài khoản">
+                  <Label layoutX="35.0" layoutY="94.0" prefHeight="44.0" prefWidth="140.0" text="TÃ i khoáº£n">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -85,7 +89,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="38.0" layoutY="134.0" prefHeight="44.0" prefWidth="140.0" text="Ngân hàng">
+                  <Label layoutX="38.0" layoutY="134.0" prefHeight="44.0" prefWidth="140.0" text="NgÃ¢n hÃ ng">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -99,7 +103,7 @@
             </Pane>
          </children>
       </Pane>
-      <Button fx:id="homeBackBtn" layoutX="574.0" layoutY="535.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="211.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold; -fx-font-size: 18px;" text="Quay lại trang chủ" textFill="WHITE">
+      <Button fx:id="homeBackBtn" layoutX="574.0" layoutY="535.0" mnemonicParsing="false" onMouseClicked="#backToHome" prefHeight="38.0" prefWidth="211.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold; -fx-font-size: 18px;" text="Quay lại trang home" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>

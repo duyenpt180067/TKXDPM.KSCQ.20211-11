@@ -34,7 +34,9 @@ private Invoice invoice;
 	public PaymentRentBikeHandler(Stage stage, String screenPath, Invoice invoice) throws IOException {
 		super(stage, screenPath);
 		this.invoice = invoice;
-
+		type.setText(invoice.getRentInfo().getBike().getType());
+		cost.setText(invoice.getRentInfo().getBike().getPrice()+" VND");
+		deposit.setText(invoice.getAmount()+" VND");
 		cardNumber.setText("kscq1_group11_2021");
 		cardHolder.setText("Group 11");
 		expirationDate.setText("11/25");
@@ -71,21 +73,20 @@ private Invoice invoice;
 		String contents = "pay order";
 		setBController(new PaymentController());
 		PaymentController ctrl = (PaymentController) getBController();
-		Map<String, String> response = ctrl.payOrder(invoice.getAmount(), contents, cardNumber.getText(), cardHolder.getText(),
+//		invoice.getAmount()
+		Map<String, String> response = ctrl.payOrder(0, contents, cardNumber.getText(), cardHolder.getText(),
 				expirationDate.getText(), securityCode.getText());
-//		Map<String, String> response = ctrl.payOrder(5, contents, "kscq1_group11_2021", "Group 11",
-//				"11/25", "298");
-		if(response.get("RESULT").toLowerCase().contains("fail")) {
+//		if(response.get("RESULT").toLowerCase().contains("fail")) {
 			BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH, response.get("RESULT"), response.get("MESSAGE") );
-			resultScreen.showDialog(response.get("MESSAGE"),response.get("RESULT"));
-		}
-		else {
-			BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH, response, invoice);
-			resultScreen.setPreviousScreen(this);
-			resultScreen.setHomeScreenHandler(homeScreenHandler);
-			resultScreen.setScreenTitle("Result Screen");
 			resultScreen.show();
-		}
+//		}
+//		else {
+//			BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH, response, invoice);
+//			resultScreen.setPreviousScreen(this);
+//			resultScreen.setHomeScreenHandler(homeScreenHandler);
+//			resultScreen.setScreenTitle("Result Screen");
+//			resultScreen.show();
+//		}
 		
 	}
 
