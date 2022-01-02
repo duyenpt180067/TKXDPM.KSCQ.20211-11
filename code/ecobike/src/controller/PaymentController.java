@@ -41,8 +41,6 @@ public class PaymentController extends BaseController{
 	 */
 	
 	
-	
-	
 	public PaymentTransaction processPayment(CreditCard creditCard, Invoice invoice)  {
 		
 		return null;
@@ -56,8 +54,7 @@ public class PaymentController extends BaseController{
 			this.card = new CreditCard(cardNumber, cardHolderName, Integer.parseInt(securityCode),
 					getExpirationDate(expirationDate));
 			LOGGER.info("create card"+this.card.toString());
-			
-
+		
 			this.interbank = new InterbankSubsystem();
 			PaymentTransaction transaction = interbank.payOrder(card, amount, contents);
 

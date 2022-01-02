@@ -45,7 +45,7 @@ public class Configs {
 		public static final String RETURN_BIKE_SCREEN_PATH = "/view/template/fxml/ReturnBike.fxml";
 		public static final String ITEM = "/view/template/fxml/item.fxml";
 		public static final String PAYMENT_SCREEN_RETURN_BIKE_PATH = "/view/template/fxml/PaymentScreen-ReturnBike.fxml";
-		
+		public static final String RESULT_SCREEN_PATH = "/view/template/fxml/Result.fxml";
 		
 		public static final String IMAGE_PATH = "assets/images";
 		
