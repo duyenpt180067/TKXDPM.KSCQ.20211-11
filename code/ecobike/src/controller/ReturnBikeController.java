@@ -60,7 +60,10 @@ public class ReturnBikeController extends BaseController {
 		
 	}
 	
-	
+	/**
+	 * create invoice
+	 * @return new invoice 
+	 */
 	public Invoice createInvoice() {
 		int amount = calculateRentAmount();
 		String contentString = "tra tien thue xe";

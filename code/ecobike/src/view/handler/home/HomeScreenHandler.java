@@ -3,6 +3,7 @@ package view.handler.home;
 import common.exception.EntityNotFoundException;
 import controller.SearchBikeController;
 import entity.dockbike.Dock;
+import entity.rental.RentInfo;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
