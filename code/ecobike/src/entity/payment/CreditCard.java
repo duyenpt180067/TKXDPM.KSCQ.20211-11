@@ -10,16 +10,14 @@ import entity.dockbike.Cell;
 
 public class CreditCard {
 
-	private String number;
+	private String cardCode;
 
-	private String cardHolder;
+	private String owner;
 
-	private String securityCode;
+	private int cvvCode;
 
-	private String issueBank;
-
-	private Date expirationDate;
-	private String Date;
+	private String dateExpired;
+//	private String Date;
 	
 	public CreditCard(String number,String cardHolder,String issueBank,String Date) {
 		
@@ -27,6 +25,10 @@ public class CreditCard {
 
 	public CreditCard(String number, String cardHolder, int securityCode, String expirationDate) {
 		// TODO Auto-generated constructor stub
+		this.cardCode = number;
+		this.owner = cardHolder;
+		this.cvvCode = securityCode;
+		this.dateExpired = expirationDate; 
 	}
 
 	/**
@@ -36,13 +38,13 @@ public class CreditCard {
 
 	}
 
-	public String getDate() {
-		return Date;
-	}
-
-	public void setDate(String date) {
-		Date = date;
-	}
+//	public String getDate() {
+//		return Date;
+//	}
+//
+//	public void setDate(String date) {
+//		Date = date;
+//	}
 	
 	public static CreditCard getCardFromTransactionId(int id) throws SQLException {
 		
