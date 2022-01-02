@@ -1,4 +1,5 @@
 package common.exception;
 
-public class EntityNotFoundException extends Exception {
+public class EntityNotFoundException extends Exception{
+
 }

@@ -65,9 +65,9 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 //	tham
 	
 
-	public void showDialog(String message){
+	public void showDialog(String message, String title){
 		Dialog<String> dialog = new Dialog<String>();
-		dialog.setTitle("Note");
+		dialog.setTitle(title);
 		dialog.setContentText(message);
 		dialog.setHeight(100);
 		dialog.setWidth(500);
