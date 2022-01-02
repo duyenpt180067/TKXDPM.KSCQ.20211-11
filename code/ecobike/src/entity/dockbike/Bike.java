@@ -101,12 +101,12 @@ public abstract class Bike {
 
 	public String getName() {
 		if(type.equals(STANDARD_EBIKE)){
-			return new String("Xe đạp điện đơn");
+			return new String("Xe dap dien don");
 		}
 		else if(type.equals(TWIN_BIKE)){
-			return new String("Xe đạp thường đôi");
+			return new String("Xe dap doi");
 		}
-		return new String("Xe đạp thường đơn");
+		return new String("Xe dap thuong");
 	}
 
 	public String getType(){

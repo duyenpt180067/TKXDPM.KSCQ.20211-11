@@ -15,6 +15,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import utils.Configs;
 import view.handler.BaseScreenHandler;
 
 public class PaymentReturnBikeHandler extends BaseScreenHandler  {
@@ -39,13 +40,15 @@ public class PaymentReturnBikeHandler extends BaseScreenHandler  {
 	public PaymentReturnBikeHandler(Stage stage, String screenPath, Invoice invoice) throws IOException {
 		super(stage, screenPath);
 		this.invoice = invoice;
-		this.setScreenTitle("Payment Screen");
+		this.setScreenTitle("Return Bike Screen");
+		cardNumber.setText("kscq1_group11_2021");
+		cardHolder.setText("Group 11");
+		expirationDate.setText("11/25");
 //		btnConfirmPayment.setOnMouseClicked(e -> {
 //			try {
 //				confirmToPayOrder();
-////				((PaymentController) getBController()).emptyCart();
 //			} catch (Exception exp) {
-//				System.out.println(exp.getStackTrace());
+//				System.out.println(exp);
 //			}
 //		});
 	}
@@ -77,17 +80,19 @@ public class PaymentReturnBikeHandler extends BaseScreenHandler  {
 	@FXML
 	TextField securityCode;
 	
+	@FXML
 	public void confirmToPayOrder() throws UnknownException, Exception {
 		String contents = "pay order";
+		setBController(new PaymentController());
 		PaymentController ctrl = (PaymentController) getBController();
-		Map<String, String> response = ctrl.payOrder(invoice.getAmount(), contents, cardNumber.getText(), cardHolder.getText(),
+		Map<String, String> response = ctrl.payOrder(0, contents, cardNumber.getText(), cardHolder.getText(),
 				expirationDate.getText(), securityCode.getText());
 
-//		BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH, response.get("RESULT"), response.get("MESSAGE") );
-//		resultScreen.setPreviousScreen(this);
-//		resultScreen.setHomeScreenHandler(homeScreenHandler);
-//		resultScreen.setScreenTitle("Result Screen");
-//		resultScreen.show();
+		BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH, response.get("RESULT"), response.get("MESSAGE") );
+		resultScreen.setPreviousScreen(this);
+		resultScreen.setHomeScreenHandler(homeScreenHandler);
+		resultScreen.setScreenTitle("Result Screen");
+		resultScreen.show();
 		
 	}
 	

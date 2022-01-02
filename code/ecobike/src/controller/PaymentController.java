@@ -60,6 +60,7 @@ public class PaymentController extends BaseController{
 
 			result.put("RESULT", "PAYMENT SUCCESSFUL!");
 			result.put("MESSAGE", "You have succesffully paid the order!");
+			result.put("transaction", transaction.toString());
 		} catch (PaymentException | UnknownError ex) {
 			result.put("MESSAGE", ex.getMessage());
 		}
