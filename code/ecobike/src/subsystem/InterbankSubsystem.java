@@ -32,10 +32,11 @@ public class InterbankSubsystem implements InterbankInterface {
 	}
 
 	/**
+	 * @throws Exception 
 	 * @see InterbankInterface#refund(entity.payment.CreditCard, int,
 	 *      java.lang.String)
 	 */
-	public PaymentTransaction refund(CreditCard card, int amount, String contents) {
+	public PaymentTransaction refund(CreditCard card, int amount, String contents)  {
 		PaymentTransaction transaction = ctrl.refund(card, amount, contents);
 		return transaction;
 	}

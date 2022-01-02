@@ -26,6 +26,7 @@ public interface InterbankInterface {
      * @return PaymentTransaction if payment is successful
      * @throws PaymentException if responded with pre-defined error code
      * @throws UnknownException if responded with an unknown error code or something goes wrong
+     * @throws Exception 
      */
     public abstract PaymentTransaction refund(CreditCard card, int amount, String content) throws PaymentException, UnknownException;
 
