@@ -1,6 +1,9 @@
 package entity.rental;
 
+import java.io.Console;
 import java.security.Timestamp;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -26,11 +29,12 @@ public class RentInfo {
 	private String endTime;
 	private String rentType;
 	private int rentedPeriod;
-	private int depopsitAmount;
+	private int depositAmount;
 	private Bike bike;
 	private boolean isComplete;
 	private int returnDockId;
 	private int returnCellId;
+	private int rentAmount;
 	
 	
 	
@@ -39,27 +43,85 @@ public class RentInfo {
 		super();
 	}
 
-	public RentInfo(int id, String startTime, String endTime, String rentType, int rentedPeriod, int depopsitAmount,
+	public RentInfo(Integer id, String startTime, String endTime, String rentType, int rentedPeriod, int depositAmount,
 			Bike bike, boolean isComplete, int returnDockId, int returnCellId) {
 		super();
-		this.id = id;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.rentType = rentType;
 		this.rentedPeriod = rentedPeriod;
-		this.depopsitAmount = depopsitAmount;
+		this.depositAmount = depositAmount;
 		this.bike = bike;
 		this.isComplete = isComplete;
 		this.returnDockId = returnDockId;
 		this.returnCellId = returnCellId;
+		
 	}
 
 /**.
  * Save rentInfo into database 
  */
 	
+	
+
+	public void insertRentInfo(){
+	      String sql = "INSERT INTO 'RENT_INFO' (startTime,rentType, depositAmount, isComplete, BIKEid) VALUES (?, ?, ?, ?,?)";
+//	      Connection conn = EcobikeDB.getConnection();
+//	      PreparedStatement prestat = null;
+	      try(
+	    		  Connection conn = EcobikeDB.getConnection();
+	    		  PreparedStatement prestat = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+	    		  )
+	      {
+	    	  System.out.println("bat dau insert");
+	         
+	         prestat.setString(1, this.startTime);
+	         prestat.setString(2, this.rentType);
+	         prestat.setInt(3, this.depositAmount);
+	         prestat.setInt(4, this.bike.getId());
+	         prestat.setInt(5, 0);
+	         
+	         prestat.executeUpdate();
+	         ResultSet resultUpdate = prestat.getGeneratedKeys();
+	         System.out.println("ket qua tra ve:" + resultUpdate);
+
+	      } catch (SQLException throwables) {
+	         throwables.printStackTrace();
+	      } finally {
+	        
+	      }
+	   }
+	
+	public void update() {
+        String sql = "UPDATE RENT_INFO SET endTime = ? , "
+                + "rentedPeriod = ? "
+                + "rentAmount = ? "
+                + "isComplete = ?"
+                + "returnDockId = ?"
+                + "returnCellId = ?"
+                + "WHERE id = ?";
+        Connection conn = EcobikeDB.getConnection();
+	      PreparedStatement prestat = null;
+        try  {
+
+            // set the corresponding param
+        	prestat.setString(1, this.endTime);
+        	prestat.setInt(2, this.rentedPeriod);
+        	prestat.setInt(3, this.rentAmount);
+        	prestat.setInt(4, 1);
+        	prestat.setInt(5, this.returnDockId);
+        	prestat.setInt(6, this.returnCellId);
+        	prestat.setInt(7, this.id);
+            
+            // update 
+        	prestat.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+	
 	public void save() {
-		
+		insertRentInfo();
 	}
  
  /**
@@ -125,12 +187,12 @@ public class RentInfo {
 		
 	}
  	
-	public int getDepopsitAmount() {
-		return depopsitAmount;
+	public int getDepositAmount() {
+		return depositAmount;
 	}
 
 	public void setDepopsitAmount(int depopsitAmount) {
-		this.depopsitAmount = depopsitAmount;
+		this.depositAmount = depopsitAmount;
 	}
 
 	public Bike getBike() {
