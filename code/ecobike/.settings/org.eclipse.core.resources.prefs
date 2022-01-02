@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/controller/RentBikeController.java=UTF-8
 encoding//src/controller/SearchBikeController.java=UTF-8
+encoding//src/entity/dockbike/Bike.java=UTF-8
 encoding//src/entity/dockbike/Dock.java=UTF-8
 encoding//src/subsystem/InterbankInterface.java=UTF-8
 encoding//src/view/handler/bike/BikeInfoScreenHandler.java=UTF-8
