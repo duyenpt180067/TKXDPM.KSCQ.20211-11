@@ -43,9 +43,18 @@ public class RentInfo {
 		super();
 	}
 
-	public RentInfo(Integer id, String startTime, String endTime, String rentType, int rentedPeriod, int depositAmount,
-			Bike bike, boolean isComplete, int returnDockId, int returnCellId) {
+	public RentInfo(String startTime, String rentType,
+			Bike bike) {
 		super();
+		this.startTime = startTime;
+		this.rentType = rentType;
+		this.bike = bike;
+		this.isComplete = false;
+	}
+
+	public RentInfo(int id, String startTime, String endTime, String rentType, int rentedPeriod,
+					int depopsitAmount, Bike bike, boolean isComplete, int returnDockId, int returnCellId) {
+		this.id = id;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.rentType = rentType;
@@ -58,7 +67,7 @@ public class RentInfo {
 		
 	}
 
-/**.
+	/**.
  * Save rentInfo into database 
  */
 	

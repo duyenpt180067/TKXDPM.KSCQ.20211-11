@@ -33,8 +33,8 @@ public class DockInHomeHandler extends FXMLScreenHandler {
     private Button viewDockBtn;
 
     private Dock dock;
-    private static final int IMAGE_WIDTH = 220;
-    private static final int IMAGE_HEIGHT = 150;
+    private static final int IMAGE_WIDTH = 150;
+    private static final int IMAGE_HEIGHT = 140;
     private BaseScreenHandler parentScreenHandler;
 
     public DockInHomeHandler(String screenPath, Dock dock, BaseScreenHandler parentScreenHandler) throws IOException, SQLException {
@@ -60,9 +60,7 @@ public class DockInHomeHandler extends FXMLScreenHandler {
 
     private void setDockInfo() throws SQLException {
         File file = new File(dock.getImagePath());
-        Image image = new Image(file.toURI().toString());
-        dockImage.setFitWidth(IMAGE_WIDTH);
-        dockImage.setFitHeight(IMAGE_HEIGHT);
+        Image image = new Image(file.toURI().toString(), IMAGE_WIDTH, IMAGE_HEIGHT, false, false);
         dockImage.setImage(image);
         dockNameText.setText(dock.getName());
         dockAddressText.setText(dock.getAddress());

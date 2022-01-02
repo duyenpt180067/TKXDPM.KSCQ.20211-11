@@ -41,7 +41,7 @@ public class DockViewScreenHandler extends BaseScreenHandler {
 
 	@FXML
 	private VBox cellsVbox;
-	private static final Integer IMAGE_WIDTH = 520;
+	private static final Integer IMAGE_WIDTH = 400;
 	private static final Integer IMAGE_HEIGHT = 230;
 	private static final Integer CELL_ROW_SIZE = 4;
 	private List<Cell> cellList;
@@ -53,9 +53,14 @@ public class DockViewScreenHandler extends BaseScreenHandler {
 		populateCellsToVBox(cellList, cellsVbox);
 	}
 
+	/***
+	 * set value to dock
+	 * @param dock
+	 * @throws SQLException if connect to db fail
+	 */
 	private void setDockInfo(Dock dock) throws SQLException {
 		File file = new File(dock.getImagePath());
-		Image image = new Image(file.toURI().toString());
+		Image image = new Image(file.toURI().toString(), IMAGE_WIDTH, IMAGE_HEIGHT, false, false);
 		dockImage.setFitWidth(IMAGE_WIDTH);
 		dockImage.setFitHeight(IMAGE_HEIGHT);
 		dockImage.setImage(image);
@@ -69,11 +74,18 @@ public class DockViewScreenHandler extends BaseScreenHandler {
 		numEmptyCellText.setText(String.valueOf(numCell - numBike));
 	}
 
+	/***
+	 * add cells to vbox in screen
+	 * @param cellList
+	 * @param vBox
+	 * @throws IOException 
+	 * @throws SQLException
+	 */
 	private void populateCellsToVBox(List<Cell> cellList, VBox vBox) throws IOException, SQLException {
 		for (int i = 0; i < cellList.size(); i += CELL_ROW_SIZE){
 			HBox rowHbox = new HBox();
 			// TODO: Cần chỉnh lại thuộc tính để đẹp hơn
-			rowHbox.setAlignment(Pos.CENTER);
+			rowHbox.setAlignment(Pos.TOP_LEFT);
 			rowHbox.setSpacing(10);
 			rowHbox.setPadding(new Insets(0, 0, 0, 50));
 			rowHbox.setPrefWidth(Region.USE_COMPUTED_SIZE);

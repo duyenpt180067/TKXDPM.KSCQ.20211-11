@@ -88,7 +88,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 		for (int i = 0; i < dockList.size(); i += DOCK_ROW_SIZE){
 			HBox rowHbox = new HBox();
 			// TODO: Cần chỉnh lại thuộc tính để đẹp hơn
-			rowHbox.setAlignment(Pos.CENTER);
+			rowHbox.setAlignment(Pos.TOP_LEFT);
 			rowHbox.setSpacing(10);
 			rowHbox.setPadding(new Insets(0, 0, 0, 50));
 			rowHbox.setPrefWidth(Region.USE_COMPUTED_SIZE);

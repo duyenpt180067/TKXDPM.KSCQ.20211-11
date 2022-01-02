@@ -30,6 +30,12 @@ public class CellHandler extends FXMLScreenHandler {
     private Text batteryText;
 
     @FXML
+    private Text licenseLabel;
+
+    @FXML
+    private Text batteryLabel;
+
+    @FXML
     private Button viewBikeBtn;
     private BaseScreenHandler parentScreenHandler;
 
@@ -56,23 +62,33 @@ public class CellHandler extends FXMLScreenHandler {
         });
     }
 
+    /***
+	 * set value to cell
+	 * @param cell
+	 * @throws SQLException if connect to db fail
+	 */
     private void setCellInfo(Cell cell) throws SQLException {
         noLabel.setText(String.valueOf(cell.getNo()));
         Bike bike = cell.getBike();
         if(bike != null){
-            bikeTypeText.setText(bike.getType());
+            bikeTypeText.setText(bike.getName());
             licenseText.setText(bike.getLicensePlate());
-            if(bike.getType() == Bike.STANDARD_EBIKE){
+            if(bike.getType().equals(Bike.STANDARD_EBIKE)){
                 batteryText.setText(String.valueOf(StandardEBike.getRemainBatteryOfBike(bike.getId())));
             }
             else{
                 batteryText.setText("");
+                batteryLabel.setText("");
             }
         }
         else{
             bikeTypeText.setText("Trống");
             licenseText.setText("");
             batteryText.setText("");
+            batteryLabel.setText("");
+            licenseLabel.setText("");
+            viewBikeBtn.setDisable(true);
+            viewBikeBtn.setVisible(false);
         }
     }
 }

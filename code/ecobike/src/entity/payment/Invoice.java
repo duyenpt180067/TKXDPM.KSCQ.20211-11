@@ -12,11 +12,6 @@ public class Invoice {
 	private int amount;
 
 	private RentInfo rentInfo;
-	
-	
-	
-	
-	
 
 	public Invoice(String content, int amount, RentInfo rentInfo) {
 		super();
@@ -51,7 +46,7 @@ public class Invoice {
 	
 	public Map<String, String> getReturnInfo() {
 		Map<String, String> result = new Hashtable<String, String>();
-		result.put("TYPE", rentInfo.getBike().getType());
+		result.put("TYPE", rentInfo.getBike().getName());
 		result.put("AMOUNT", this.getAmount()+"VND");
 		result.put("TIME", timeIntToString(rentInfo.getRentedPeriod()) );
 		result.put("MULTI","x" + rentInfo.getBikeMulti());

@@ -99,7 +99,17 @@ public abstract class Bike {
 		return notFullDockList;
 	}
 
-	public String getType() {
+	public String getName() {
+		if(type.equals(STANDARD_EBIKE)){
+			return new String("Xe đạp điện đơn");
+		}
+		else if(type.equals(TWIN_BIKE)){
+			return new String("Xe đạp thường đôi");
+		}
+		return new String("Xe đạp thường đơn");
+	}
+
+	public String getType(){
 		return type;
 	}
 

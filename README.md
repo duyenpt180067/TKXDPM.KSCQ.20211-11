@@ -82,3 +82,30 @@ Thiết kế InterBank interface
 
     Cả 3 thành viên họp một buổi để review phần làm của từng người
  
+---
+# LAB 03 - EcoBikeRental Class Design
+## Tasks
+Thiết kế cơ sở dữ liệu, lớp và viết document cho code
+
+ (1) Thiết kế cơ sở dữ liệu: 
+    1.1. Concept
+    1.2. Logic
+    1.3. Đặc tả
+ (2) Thiết kế chi tiết lớp: 
+    2.1. Thiết kế
+    2.2. Đặc tả
+ (3) Viết document cho code
+
+Thiết kế InterBank interface 
+
+## Contribution
+- Cả ba làm chung: 1.1, 1.2, 2.1
+- Còn lại: phân chia theo lớp liên quan đến nghiệp vụ
+    + Duyên: xem xe
+    + Vân: thuê xe, trả xe
+    + Thắm: thanh toán
+
+## Revisions
+
+    Cả 3 thành viên họp một buổi để review phần làm của từng người
+ 
