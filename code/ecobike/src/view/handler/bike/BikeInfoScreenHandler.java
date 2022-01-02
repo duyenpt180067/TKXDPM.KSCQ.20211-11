@@ -5,13 +5,18 @@ import entity.dockbike.Bike;
 import entity.dockbike.Cell;
 import entity.dockbike.Dock;
 import entity.dockbike.StandardEBike;
+import entity.payment.Invoice;
 import entity.rental.RentInfo;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import utils.Configs;
 import view.handler.BaseScreenHandler;
+import view.handler.payment.PaymentRentBikeHandler;
+import view.handler.payment.ResultScreenHandler;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -47,6 +52,9 @@ public class BikeInfoScreenHandler extends BaseScreenHandler {
 
 	@FXML
 	private RadioButton byComboRadioBtn;
+	
+	@FXML
+	private Button rentBikeBtn;
 
 	private Bike bike;
 
@@ -54,6 +62,15 @@ public class BikeInfoScreenHandler extends BaseScreenHandler {
 		super(stage, screenPath);
 		this.bike = bike;
 		setBikeInfo(bike);
+		rentBikeBtn.setOnMouseClicked(e -> {
+			try {
+				handleRentBikeBtnClick();
+			}
+			catch (Exception ex) {
+				// TODO: handle exception
+				ex.printStackTrace();
+			}
+		});
 	}
 
 	/***
@@ -102,9 +119,9 @@ public class BikeInfoScreenHandler extends BaseScreenHandler {
 
 	/**
 	 * handle after user clicks “Rent Bike” button
+	 * @throws IOException 
 	 */
-	@FXML
-	public void handleRentBikeBtnClick() {
+	public void handleRentBikeBtnClick() throws IOException {
 		RadioButton selectedBtn = (RadioButton) rentOptionGroup.getSelectedToggle();
 		String type = null;
 		if(selectedBtn.getId().equals(new String("byDayRadioBtn"))){
@@ -115,5 +132,12 @@ public class BikeInfoScreenHandler extends BaseScreenHandler {
 		}
 		Date today = new Date();
 		RentInfo rentInfo = new RentInfo(today.toString(), type, bike);
+		Invoice invoice = new Invoice("Thanh toan tien dat coc", rentInfo.getBike().getComposit(), rentInfo);
+		BaseScreenHandler paymentScreen = new PaymentRentBikeHandler(this.stage, Configs.PAYMENT_SCREEN_RENT_BIKE_PATH, invoice);
+		paymentScreen.setPreviousScreen(this);
+		paymentScreen.setHomeScreenHandler(homeScreenHandler);
+		paymentScreen.setScreenTitle("Payment Screen");
+		paymentScreen.show();
+		paymentScreen.show();
 	}
 }
