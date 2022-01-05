@@ -41,6 +41,9 @@ public class ReturnBikeScreenHandler extends BaseScreenHandler {
 	Button returnBikeBtn;
 	
 	ReturnBikeScreenHandler bController;
+	
+	int returnCellID;
+	int returnDockID;
 	/**
 	 * Display info in screen
 	 */
@@ -103,9 +106,12 @@ public class ReturnBikeScreenHandler extends BaseScreenHandler {
 	
 	
 	public void setDockId(int id) {
+		returnDockID = id;
 		dockId.setText(Integer.toString(id));
+		setCellId(0);
 	}
 	public void setCellId(int id) {
+		returnCellID=id;
 		cellId.setText(Integer.toString(id));
 	}
 	
@@ -113,18 +119,21 @@ public class ReturnBikeScreenHandler extends BaseScreenHandler {
 	 * Process when user choose a cell
 	 */
 	public void handleReturnBikeBtnClick() {
-//		tinh tien thue xe
-//		create invoice
 		
-		try {
-			Invoice invoice = getBController().createInvoice();
-			PaymentReturnBikeHandler paymentReturnBikeHandler;
-			paymentReturnBikeHandler = new PaymentReturnBikeHandler(stage, Configs.PAYMENT_SCREEN_RETURN_BIKE_PATH, invoice);
-			paymentReturnBikeHandler.show();
-			paymentReturnBikeHandler.display();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+		if(returnCellID >0 && returnDockID > 0) {
+			
+			try {
+				getBController().returnBikeProcess(returnCellID, returnDockID);
+				Invoice invoice = getBController().createInvoice();
+				PaymentReturnBikeHandler paymentReturnBikeHandler;
+				paymentReturnBikeHandler = new PaymentReturnBikeHandler(stage, Configs.PAYMENT_SCREEN_RETURN_BIKE_PATH, invoice);
+				paymentReturnBikeHandler.show();
+				paymentReturnBikeHandler.display();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 	}

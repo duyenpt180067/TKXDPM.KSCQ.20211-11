@@ -76,7 +76,7 @@ public class RentedBikeInfoScreenHandler extends BaseScreenHandler{
  * @throws SQLException 
  */
 	public void display() throws SQLException {
-		Map<String, String> infoMap = bController.getScreenInfo();
+		Map<String, String> infoMap = bController.getRentedInfoMap();
 		
 		//set info
 //		File file = new File(infoMap.get("imagePath"));
@@ -89,7 +89,7 @@ public class RentedBikeInfoScreenHandler extends BaseScreenHandler{
 		time.setText(infoMap.get("time"));
 	
 		amount.setText(infoMap.get("amount"));
-		pin.setText("khong co");
+		pin.setText(infoMap.get("pin"));
 		
 	}
 	
@@ -113,11 +113,4 @@ public class RentedBikeInfoScreenHandler extends BaseScreenHandler{
 
 	}
 	
-/**
- * Notify Error
- * @param message -the message error
- */
-	public void notifyError(String message) {
-		
-	}
 }

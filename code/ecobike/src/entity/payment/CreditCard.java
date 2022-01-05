@@ -1,5 +1,7 @@
 package entity.payment;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -19,12 +21,20 @@ public class CreditCard {
 	private String owner;
 
 	private int cvvCode;
+	private String issuingBank;
 
 	private String dateExpired;
 //	private String Date;
 	
 	public CreditCard() {
 		
+	}
+
+	public CreditCard(String number,String cardHolder,String issuingBank,String Date) {
+		this.cardCode = number;
+		this.owner = cardHolder;
+		this.issuingBank = issuingBank;
+		this.dateExpired = Date;
 	}
 
 	public CreditCard(String number, String cardHolder, int securityCode, String expirationDate) {
@@ -37,45 +47,88 @@ public class CreditCard {
 
 	/**
 	 * Save unprivate into database
+	 * @throws SQLException 
 	 */
-	public void save() {
+	public void save() throws SQLException {
+		  if(checkCardInDatabase() == false) {
+			  String sql = "INSERT INTO 'CARD' (number,cardHolder, issuingBank, expiratonDate) VALUES (?, ?, ?, ?)";
+		      Connection conn = EcobikeDB.getConnection();
+			  PreparedStatement prestat = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+		      try
+		      {
+		    	  System.out.println("bat dau insert");
+		         
+		         prestat.setString(1, this.cardCode);
+		         prestat.setString(2, this.owner);
+		         prestat.setString(3, this.issuingBank);
+		         prestat.setString(4, this.dateExpired);
+		         
+		         prestat.executeUpdate();
+		         ResultSet resultUpdate = prestat.getGeneratedKeys();
+		         System.out.println("Save Card: " + resultUpdate);
 
+		      } catch (SQLException throwables) {
+		         throwables.printStackTrace();
+		      } finally {
+		        
+		      }
+		  }
 	}
 
-//	public String getDate() {
-//		return Date;
-//	}
-//
-//	public void setDate(String date) {
-//		Date = date;
-//	}
-	
-	/***
-	 * Get card from paymentTransaction
-	 * @param id
-	 * @return CreditCard
-	 * @throws SQLException
-	 */
-	public static CreditCard getCardFromTransactionId(int id) throws SQLException {
+
+	private boolean checkCardInDatabase() throws SQLException {
 		
-		String sql = "SELECT * FROM CARD " +
-				
-				"where number = " + 
-				"(" + "SELECT CARDnumber FROM PAYMENT_TRANSACTION " +
-				"where id = "+id+ ")" +
-				" ;";
+		String sql = "SELECT TOP(1) FROM CARD " +	
+				"where number = " + this.cardCode + ";";	
 		Statement stm = EcobikeDB.getConnection().createStatement();
 		ResultSet res = stm.executeQuery(sql);
-		CreditCard creditCard = null;
 		if (res.next()){
-			String number = res.getString("number");
-			String cardHolder = res.getString("cardHolder");
-			String issuingBank = res.getString("issuingBank");
-//			creditCard = new CreditCard(dockId, no, type);
+			return true;
 		}
-		return creditCard;
+		return false;
 		
 	}
+
+	public String getCardCode() {
+		return cardCode;
+	}
+
+	public void setCardCode(String cardCode) {
+		this.cardCode = cardCode;
+	}
+
+	public String getOwner() {
+		return owner;
+	}
+
+	public void setOwner(String owner) {
+		this.owner = owner;
+	}
+
+	public int getCvvCode() {
+		return cvvCode;
+	}
+
+	public void setCvvCode(int cvvCode) {
+		this.cvvCode = cvvCode;
+	}
+
+	public String getIssuingBank() {
+		return issuingBank;
+	}
+
+	public void setIssuingBank(String issuingBank) {
+		this.issuingBank = issuingBank;
+	}
+
+	public String getDateExpired() {
+		return dateExpired;
+	}
+
+	public void setDateExpired(String dateExpired) {
+		this.dateExpired = dateExpired;
+	}
+	
 	
 	/***
 	 * validate card number
