@@ -5,6 +5,7 @@ import java.util.Map;
 
 import common.exception.UnknownException;
 import controller.PaymentController;
+import entity.payment.CreditCard;
 import entity.payment.Invoice;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -37,17 +38,16 @@ public class PaymentReturnBikeHandler extends BaseScreenHandler  {
 	public PaymentReturnBikeHandler(Stage stage, String screenPath, Invoice invoice) throws IOException {
 		super(stage, screenPath);
 		this.invoice = invoice;
+		CreditCard card = invoice.getRentInfo().getDepositCard();
+		System.out.println(card.getCardCode());
 		this.setScreenTitle("Return Bike Screen");
-		cardNumber.setText("kscq1_group11_2021");
-		cardHolder.setText("Group 11");
+		cardNumber.setText(card.getCardCode());
+		cardHolder.setText(card.getOwner());
 		expirationDate.setText("11/25");
-//		btnConfirmPayment.setOnMouseClicked(e -> {
-//			try {
-//				confirmToPayOrder();
-//			} catch (Exception exp) {
-//				System.out.println(exp);
-//			}
-//		});
+//		cardNumber.setText("kscq1_group11_2021");
+//		cardHolder.setText("Group 11");
+//		expirationDate.setText("11/25");
+
 	}
 	
 	public void display() {
@@ -79,20 +79,25 @@ public class PaymentReturnBikeHandler extends BaseScreenHandler  {
 	
 	@FXML
 	public void confirmToPayOrder() throws UnknownException, Exception {
-		String contentsPay = "pay order";
-		String contentsRefund = "refund order";
+		String contentsPay = "pay";
+		String contentsRefund = "refund";
 		setBController(new PaymentController());
 		PaymentController ctrl = (PaymentController) getBController();
-		Map<String, String> response = ctrl.pay(0, contentsPay, cardNumber.getText(), cardHolder.getText(),
-				expirationDate.getText(), securityCode.getText());
-		Map<String, String> resRefund = ctrl.refund(0, contentsRefund, cardNumber.getText(), cardHolder.getText(),
-				expirationDate.getText(), securityCode.getText());
-		BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH, response.get("RESULT") +"\n"+ resRefund.get("RESULT"), response.get("MESSAGE") + "\n"+resRefund.get("MESSAGE"));
+		int amount = invoice.getRentInfo().getDepositAmount() - invoice.getAmount();
+		Map<String, String> response;
+		if(amount < 0) {
+			response = ctrl.pay(0, contentsPay, cardNumber.getText(), cardHolder.getText(),
+					expirationDate.getText(), securityCode.getText(), this.invoice);
+		}
+		else {
+			response = ctrl.refund(amount, contentsRefund, cardNumber.getText(), cardHolder.getText(),
+					expirationDate.getText(), securityCode.getText(), this.invoice);
+		}
+		BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH, response.get("RESULT"), response.get("MESSAGE"), response.get("AMOUNT"));
 		resultScreen.setPreviousScreen(this);
 		resultScreen.setHomeScreenHandler(homeScreenHandler);
 		resultScreen.setScreenTitle("Result Screen");
 		resultScreen.show();
-		
 	}
 	
 	

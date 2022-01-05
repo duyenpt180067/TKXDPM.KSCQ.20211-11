@@ -3,6 +3,8 @@ package entity.dockbike;
 import common.exception.EntityNotFoundException;
 import entity.db.EcobikeDB;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -37,6 +39,22 @@ public class Cell {
 		while (res.next()){
 			int no = res.getInt("no");
 			String type = res.getString("type");
+			cell = new Cell(dockId, no, type);
+		}
+		return cell;
+	}
+	
+	public static Cell getCellInDockByBike(int bikeId) throws SQLException {
+		String sql = "SELECT CELL.*, CELL_TYPE.name as type FROM CELL " +
+				"INNER JOIN CELL_TYPE ON CELL.CELL_TYPEid = CELL_TYPE.id " +
+				"where BIKEid = " + bikeId + " ;";
+		Statement stm = EcobikeDB.getConnection().createStatement();
+		ResultSet res = stm.executeQuery(sql);
+		Cell cell = null;
+		while (res.next()){
+			int no = res.getInt("no");
+			String type = res.getString("type");
+			int dockId = res.getInt("DOCKid");
 			cell = new Cell(dockId, no, type);
 		}
 		return cell;
@@ -80,6 +98,43 @@ public class Cell {
 		}
 		return bike;
 	}
+	
+	public static void updateBikeLocation(int bikeId, int returnCellId, int returnDockId) throws SQLException {
+        String sql = "UPDATE CELL SET BIKEid = ? "
+                + "WHERE DOCKid = ? and no = ? " ;
+        Connection conn = EcobikeDB.getConnection();
+          PreparedStatement prestat = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        try  {
+ 
+            // set the corresponding param
+            prestat.setInt(1, bikeId);
+            prestat.setInt(2, returnDockId);
+            prestat.setInt(3, returnCellId);
+
+            // update 
+            prestat.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("ADD BIKE "+ bikeId + " at DOCK: "+ returnDockId + " at CELL " + returnCellId);
+        }
+    }
+
+    public void removeBikeLocation() throws SQLException {
+        String sql = "UPDATE CELL SET BIKEid = NULL "
+                + "WHERE DOCKid = ? and no = ? " ;
+        Connection conn = EcobikeDB.getConnection();
+        PreparedStatement prestat = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        try  {
+ 
+            // set the corresponding param
+            prestat.setInt(1, this.dockId);
+            prestat.setInt(2, this.no);
+
+            // update 
+            prestat.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("ADD BIKE "+ this.bike.getId() + " at DOCK: "+ this.dockId + " at CELL " + this.no);
+        }
+    }
 
 	public String getType(){
 		return type;

@@ -7,10 +7,12 @@ import java.util.logging.Logger;
 import common.exception.PaymentException;
 import common.exception.UnknownException;
 import entity.payment.PaymentTransaction;
+import entity.rental.RentInfo;
 import subsystem.InterbankPayInterface;
 import subsystem.InterbankRefundInterface;
 import subsystem.InterbankSubsystem;
 import utils.Utils;
+import entity.dockbike.Cell;
 import entity.payment.CreditCard;
 import entity.payment.Invoice;
 
@@ -54,7 +56,7 @@ public class PaymentController extends BaseController{
 	 * @throws Exception
 	 */
 	public Map<String, String> pay(int amount, String contents, String cardNumber, String cardHolderName,
-			String expirationDate, String securityCode) throws UnknownException, PaymentException, Exception {
+			String expirationDate, String securityCode, Invoice invoice) throws UnknownException, PaymentException, Exception {
 		Map<String, String> result = new Hashtable<String, String>();
 		result.put("RESULT", "PAYMENT FAILED!");
 		try {
@@ -64,10 +66,31 @@ public class PaymentController extends BaseController{
 		
 			this.interbankPay = new InterbankSubsystem();
 			PaymentTransaction transaction = interbankPay.pay(card, amount, contents);
-
+			transaction.setCreditCard(this.card);
 			result.put("RESULT", "PAYMENT SUCCESSFUL!");
 			result.put("MESSAGE", "You have succesffully paid!");
-			result.put("transaction", transaction.toString());
+			result.put("AMOUNT", amount+"");
+			
+			if(contents == "deposit") {
+				LOGGER.info("DEPOSIT");
+				Cell cellStart = Cell.getCellInDockByBike(invoice.getRentInfo().getBike().getId());
+				LOGGER.info("bike at : dock " + cellStart.getDockId() + " cell : " + cellStart.getNo());
+				this.card.save(); 
+				invoice.getRentInfo().saveInitalRentInfo();
+				
+				RentInfo renInfo = RentInfo.getRentInfo();
+				LOGGER.info("GET RENT INFO: " +renInfo.getId());
+				invoice.setRentInfo(renInfo);
+				cellStart.removeBikeLocation();
+				
+			}
+			else if(contents == "pay") {
+				//Cell cellStart = Cell.getCellInDockByBike(invoice.getRentInfo().getBike().getId());
+				invoice.getRentInfo().saveFullRentInfo();
+				Cell.updateBikeLocation(invoice.getRentInfo().getBike().getId(), invoice.getRentInfo().getReturnCellId(), invoice.getRentInfo().getReturnDockId());
+			}
+			transaction.setRentInfo(invoice.getRentInfo());
+			transaction.save();
 		} catch (PaymentException | UnknownError ex) {
 			result.put("MESSAGE", ex.getMessage());
 		}
@@ -88,7 +111,7 @@ public class PaymentController extends BaseController{
 	 * @throws Exception
 	 */
 	public Map<String, String> refund(int amount, String contents, String cardNumber, String cardHolderName,
-			String expirationDate, String securityCode) throws UnknownException, Exception {
+			String expirationDate, String securityCode, Invoice invoice) throws UnknownException, Exception {
 		Map<String, String> result = new Hashtable<String, String>();
 		result.put("RESULT", "REFUND FAILED!");
 		try {
@@ -98,10 +121,16 @@ public class PaymentController extends BaseController{
 		
 			this.interbankRefund = new InterbankSubsystem();
 			PaymentTransaction transaction = interbankRefund.refund(card, amount, contents);
-
+			//Cell cellStart = Cell.getCellInDockByBike(invoice.getRentInfo().getBike().getId());
+			transaction.setCreditCard(this.card);
+			invoice.getRentInfo().saveFullRentInfo();
+			//System.out.println(cellStart);
+			Cell.updateBikeLocation(invoice.getRentInfo().getBike().getId(), invoice.getRentInfo().getReturnCellId(), invoice.getRentInfo().getReturnDockId());
+			transaction.setRentInfo(invoice.getRentInfo());
+			transaction.save();
 			result.put("RESULT", "REFUND SUCCESSFUL!");
 			result.put("MESSAGE", "You have been successfully refunded!");
-			result.put("transaction", transaction.toString());
+			result.put("AMOUNT", amount+"");
 		} catch (PaymentException | UnknownError ex) {
 			result.put("MESSAGE", ex.getMessage());
 		}

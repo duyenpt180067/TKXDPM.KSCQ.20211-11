@@ -33,6 +33,11 @@
                   <Font size="18.0" />
                </font>
             </Text>
+            <Text fx:id="amoutResult1" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Giao dịch" wrappingWidth="452.0">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
       <Label fx:id="result" layoutX="300.0" layoutY="37.0" prefHeight="44.0" prefWidth="214.0" text="Kết quả giao dịch">

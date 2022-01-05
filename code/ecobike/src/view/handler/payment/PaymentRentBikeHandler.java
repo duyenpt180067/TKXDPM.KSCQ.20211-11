@@ -42,7 +42,7 @@ private Invoice invoice;
 		expirationDate.setText("11/25");
 		btnConfirmPayment.setOnMouseClicked(e -> {
 			try {
-				confirmToPayOrder();
+				confirmToPayOrder(invoice);
 //				((PaymentController) getBController()).emptyCart();
 			} catch (Exception exp) {
 				System.out.println(exp);
@@ -69,15 +69,15 @@ private Invoice invoice;
 	@FXML
 	TextField securityCode;
 	
-	public void confirmToPayOrder() throws UnknownException, Exception {
-		String contents = "pay order";
+	public void confirmToPayOrder(Invoice invoice) throws UnknownException, Exception {
+		String contents = "deposit";
 		setBController(new PaymentController());
 		PaymentController ctrl = (PaymentController) getBController();
 //		invoice.getAmount()
 		Map<String, String> response = ctrl.pay(0, contents, cardNumber.getText(), cardHolder.getText(),
-				expirationDate.getText(), securityCode.getText());
+				expirationDate.getText(), securityCode.getText(), invoice);
 //		if(response.get("RESULT").toLowerCase().contains("fail")) {
-			BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH, response.get("RESULT"), response.get("MESSAGE") );
+			BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH, response.get("RESULT"), response.get("MESSAGE"), response.get("AMOUNT"));
 			resultScreen.setPreviousScreen(this);
 			resultScreen.setHomeScreenHandler(homeScreenHandler);
 			resultScreen.setScreenTitle("Result Screen");

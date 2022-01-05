@@ -33,9 +33,8 @@ public class RentInfo {
 	private int returnDockId;
 	private int returnCellId;
 	private int rentAmount;
-	
-	
-	
+	private int startCellId;
+	private int startDockId;
 	
 	public RentInfo() {
 		super();
@@ -67,26 +66,26 @@ public class RentInfo {
 
 	/**.
  * Save rentInfo into database 
+	 * @throws SQLException 
  */
 	
 	
 
-	public void saveInitalRentInfo(){
+	public void saveInitalRentInfo() throws SQLException{
 	      String sql = "INSERT INTO 'RENT_INFO' (startTime,rentType, depositAmount, isComplete, BIKEid) VALUES (?, ?, ?, ?,?)";
 //	      Connection conn = EcobikeDB.getConnection();
 //	      PreparedStatement prestat = null;
-	      try(
-	    		  Connection conn = EcobikeDB.getConnection();
-	    		  PreparedStatement prestat = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-	    		  )
+	      Connection conn = EcobikeDB.getConnection();
+		  PreparedStatement prestat = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+	      try
 	      {
 	    	  System.out.println("bat dau insert");
 	         
 	         prestat.setString(1, this.startTime.toString());
 	         prestat.setString(2, this.rentType);
 	         prestat.setInt(3, this.depositAmount);
-	         prestat.setInt(4, this.bike.getId());
-	         prestat.setInt(5, 0);
+	         prestat.setInt(4, 0);
+	         prestat.setInt(5, this.bike.getId());
 	         
 	         prestat.executeUpdate();
 	         ResultSet resultUpdate = prestat.getGeneratedKeys();
@@ -95,17 +94,33 @@ public class RentInfo {
 	      } catch (SQLException throwables) {
 	         throwables.printStackTrace();
 	      } finally {
-	        
+	    	  prestat.close();
 	      }
 	   }
 	
+	public int getStartCellId() {
+		return startCellId;
+	}
+
+	public void setStartCellId(int startCellId) {
+		this.startCellId = startCellId;
+	}
+
+	public int getStartDockId() {
+		return startDockId;
+	}
+
+	public void setStartDockId(int startDockId) {
+		this.startDockId = startDockId;
+	}
+
 	public void saveFullRentInfo() throws SQLException {
-        String sql = "UPDATE RENT_INFO SET endTime = ? , "
-                + "rentedPeriod = ? "
-                + "rentAmount = ? "
-                + "isComplete = ?"
-                + "returnDockId = ?"
-                + "returnCellId = ?"
+        String sql = "UPDATE RENT_INFO SET endTime = ?, "
+                + "rentedPeriod = ?, "
+                + "rentAmount = ?, "
+                + "isComplete = ?, "
+                + "returnDockId = ?, "
+                + "returnCellId = ? "
                 + "WHERE id = ?";
         Connection conn = EcobikeDB.getConnection();
 	      PreparedStatement prestat = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -140,6 +155,7 @@ public class RentInfo {
 					" where isComplete = " + 0 + " ;";
 			Statement stm = EcobikeDB.getConnection().createStatement();
 			ResultSet res = stm.executeQuery(sql);
+			int id;
 			int bikeId = 0;
 			LocalDateTime startTime;
 			LocalDateTime endTime;
@@ -149,6 +165,7 @@ public class RentInfo {
 			int returnDockId;
 			int returnCellId;
 			if(res.next()) {
+				id = res.getInt("id");
 				bikeId = res.getInt("BIKEid");
 				LocalDateTime startTimeString =LocalDateTime.parse(res.getString("startTime"));
 				System.out.println("ngay bat dau: lay tu CSDL "+ res.getString("startTime"));
@@ -168,7 +185,7 @@ public class RentInfo {
 				System.out.println("thong tin xe dap: " + bike.toString());
 //				rentInfo.setBike(bike);
 				int depopsitAmount = bike.getComposit();
-				rentInfo = new RentInfo(bikeId,startTime,rentType,
+				rentInfo = new RentInfo(id,startTime,rentType,
 						rentedPeriod,depopsitAmount,bike,false,returnDockId,returnCellId);
 							
 			}
@@ -304,7 +321,7 @@ public class RentInfo {
 		try {
 			String sql = "SELECT * FROM CARD"+
 					" where number = " +
-					"(SELECT DISTINCT CARDnumber FROM PAYMENT_TRANSACTION where RENT_INFOid = " + this.id + ")"; 
+					"(SELECT DISTINCT cardNum FROM PAYMENT_TRANSACTION where rentInfoId = " + this.id + ")"; 
 			Statement stm = EcobikeDB.getConnection().createStatement();
 			ResultSet res = stm.executeQuery(sql);
 			String number;
@@ -314,9 +331,8 @@ public class RentInfo {
 			if(res.next()) {
 				number = res.getString("number");
 				cardHolder = res.getString("cardHolder");
-				issuingBank = res.getString("issuingBank");
 				dateExpired = res.getString("expiratonDate");	
-				card = new CreditCard(number,cardHolder,issuingBank,dateExpired);
+				card = new CreditCard(number,cardHolder,"",dateExpired);
 				System.out.println("thong tin CreditCard: " + "number: "+ number + " cardHolder : " + cardHolder);			
 			}
 

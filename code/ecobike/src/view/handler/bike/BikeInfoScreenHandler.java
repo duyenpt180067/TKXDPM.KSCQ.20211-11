@@ -121,24 +121,35 @@ public class BikeInfoScreenHandler extends BaseScreenHandler {
 	/**
 	 * handle after user clicks “Rent Bike” button
 	 * @throws IOException 
+	 * @throws SQLException 
 	 */
-	public void handleRentBikeBtnClick() throws IOException {
-		RadioButton selectedBtn = (RadioButton) rentOptionGroup.getSelectedToggle();
-		String type = null;
-		if(selectedBtn.getId().equals(new String("byDayRadioBtn"))){
-			type = RentInfo.NOMAL_RENT_TYPE;
+	public void handleRentBikeBtnClick() throws IOException, SQLException {
+//		RentInfo renInfo =  RentInfo.getRentInfo();
+//		if(renInfo != null && renInfo.isComplete() == false) {
+//			return;
+//		}
+//		else {
+			RadioButton selectedBtn = (RadioButton) rentOptionGroup.getSelectedToggle();
+			String type = null;
+			if(selectedBtn.getId().equals(new String("byDayRadioBtn"))){
+				type = RentInfo.NOMAL_RENT_TYPE;
+			}
+			else{
+				type = RentInfo.ONEDAY_RENT_TYPE;
+			}
+			LocalDateTime today =LocalDateTime.now();
+			RentInfo rentInfo = new RentInfo(today, type, bike);
+			Invoice invoice = new Invoice("Thanh toan tien dat coc", rentInfo.getBike().getComposit(), rentInfo);
+//			Cell startCell = Cell.getCellInDockByBike(rentInfo.getBike().getId());
+//			renInfo.setStartCellId(startCell.getNo());
+//			renInfo.setStartDockId(startCell.getDockId());
+			BaseScreenHandler paymentScreen = new PaymentRentBikeHandler(this.stage, Configs.PAYMENT_SCREEN_RENT_BIKE_PATH, invoice);
+			paymentScreen.setPreviousScreen(this);
+			paymentScreen.setHomeScreenHandler(homeScreenHandler);
+			paymentScreen.setScreenTitle("Payment Screen");
+			paymentScreen.show();
+			paymentScreen.show();
 		}
-		else{
-			type = RentInfo.ONEDAY_RENT_TYPE;
-		}
-		LocalDateTime today =LocalDateTime.now();
-		RentInfo rentInfo = new RentInfo(today, type, bike);
-		Invoice invoice = new Invoice("Thanh toan tien dat coc", rentInfo.getBike().getComposit(), rentInfo);
-		BaseScreenHandler paymentScreen = new PaymentRentBikeHandler(this.stage, Configs.PAYMENT_SCREEN_RENT_BIKE_PATH, invoice);
-		paymentScreen.setPreviousScreen(this);
-		paymentScreen.setHomeScreenHandler(homeScreenHandler);
-		paymentScreen.setScreenTitle("Payment Screen");
-		paymentScreen.show();
-		paymentScreen.show();
-	}
+		
+//	}
 }

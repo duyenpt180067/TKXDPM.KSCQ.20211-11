@@ -21,7 +21,7 @@ public class CreditCard {
 	private String owner;
 
 	private int cvvCode;
-	private String issuingBank;
+//	private String issuingBank;
 
 	private String dateExpired;
 //	private String Date;
@@ -33,7 +33,7 @@ public class CreditCard {
 	public CreditCard(String number,String cardHolder,String issuingBank,String Date) {
 		this.cardCode = number;
 		this.owner = cardHolder;
-		this.issuingBank = issuingBank;
+//		this.issuingBank = issuingBank;
 		this.dateExpired = Date;
 	}
 
@@ -60,7 +60,7 @@ public class CreditCard {
 		         
 		         prestat.setString(1, this.cardCode);
 		         prestat.setString(2, this.owner);
-		         prestat.setString(3, this.issuingBank);
+		         prestat.setString(3, "");
 		         prestat.setString(4, this.dateExpired);
 		         
 		         prestat.executeUpdate();
@@ -78,8 +78,8 @@ public class CreditCard {
 
 	private boolean checkCardInDatabase() throws SQLException {
 		
-		String sql = "SELECT TOP(1) FROM CARD " +	
-				"where number = " + this.cardCode + ";";	
+		String sql = "SELECT * FROM CARD " +	
+				"where number = '" + this.cardCode + "';";	
 		Statement stm = EcobikeDB.getConnection().createStatement();
 		ResultSet res = stm.executeQuery(sql);
 		if (res.next()){
@@ -113,13 +113,13 @@ public class CreditCard {
 		this.cvvCode = cvvCode;
 	}
 
-	public String getIssuingBank() {
-		return issuingBank;
-	}
-
-	public void setIssuingBank(String issuingBank) {
-		this.issuingBank = issuingBank;
-	}
+//	public String getIssuingBank() {
+//		return issuingBank;
+//	}
+//
+//	public void setIssuingBank(String issuingBank) {
+//		this.issuingBank = issuingBank;
+//	}
 
 	public String getDateExpired() {
 		return dateExpired;
