@@ -13,100 +13,37 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="387.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane layoutX="10.0" layoutY="10.0" prefHeight="489.0" prefWidth="543.0" style="-fx-border-color: #f0a902; -fx-border-width: 2px;" AnchorPane.leftAnchor="411.0" AnchorPane.rightAnchor="411.79999999999995">
-         <children>
-            <ImageView fitHeight="42.0" fitWidth="41.0" layoutX="149.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/ok.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="result" layoutX="206.0" layoutY="29.0" prefHeight="44.0" prefWidth="214.0" text="Giao dá»‹ch thÃ nh cÃ´ng">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Pane layoutX="58.0" layoutY="98.0" prefHeight="359.0" prefWidth="448.0">
-               <children>
-                  <Label layoutX="35.0" layoutY="22.0" prefHeight="44.0" prefWidth="186.0" text="Thá»�i gian thanh toÃ¡n">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="" layoutX="235.0" layoutY="22.0" prefHeight="44.0" prefWidth="177.0" text="09:20 - 11/11/2021">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="37.0" layoutY="59.0" prefHeight="44.0" prefWidth="140.0" text="MÃ£ giao dá»‹ch">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="transactionId" layoutX="234.0" layoutY="57.0" prefHeight="44.0" prefWidth="140.0" text="01234523MD2D">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="38.0" layoutY="173.0" prefHeight="44.0" prefWidth="140.0" text="Dá»‹ch vá»¥">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="service" layoutX="235.0" layoutY="173.0" prefHeight="44.0" prefWidth="191.0" text="ThuÃª xe Ä‘áº¡p Ä‘iá»‡n Ä‘Æ¡n">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="38.0" layoutY="217.0" prefHeight="44.0" prefWidth="140.0" text="Sá»‘ tiá»�n">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="amount" layoutX="235.0" layoutY="217.0" prefHeight="44.0" prefWidth="191.0" text="33, 000 VND">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="42.0" layoutY="252.0" prefHeight="44.0" prefWidth="169.0" text="Ná»™i dung giao dá»‹ch:">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="content" layoutX="88.0" layoutY="296.0" prefHeight="48.0" prefWidth="356.0" text="Thanh toÃ¡n tiá»�n thuÃª xe EcoPark">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="35.0" layoutY="94.0" prefHeight="44.0" prefWidth="140.0" text="TÃ i khoáº£n">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="account" layoutX="234.0" layoutY="91.0" prefHeight="51.0" prefWidth="239.0" text="192323232 NGUYEN VAN AN">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="38.0" layoutY="134.0" prefHeight="44.0" prefWidth="140.0" text="NgÃ¢n hÃ ng">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="bank" layoutX="234.0" layoutY="131.0" prefHeight="51.0" prefWidth="239.0" text="VietinBank">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-         </children>
-      </Pane>
-      <Button fx:id="homeBackBtn" layoutX="574.0" layoutY="535.0" mnemonicParsing="false" onMouseClicked="#backToHome" prefHeight="38.0" prefWidth="211.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold; -fx-font-size: 18px;" text="Quay lại trang home" textFill="WHITE">
+      <Pane layoutX="365.0" layoutY="-25.0" prefHeight="489.0" prefWidth="543.0" style="-fx-border-color: #f0a902; -fx-border-width: 2px;" AnchorPane.leftAnchor="365.0" AnchorPane.rightAnchor="457.79999999999995" />
+      <Button fx:id="homeBackBtn" layoutX="260.0" layoutY="286.0" mnemonicParsing="false" onMouseClicked="#backToHome" prefHeight="38.0" prefWidth="211.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold; -fx-font-size: 18px;" text="Quay lại trang home" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
+      <Pane layoutX="141.0" layoutY="94.0" prefHeight="173.0" prefWidth="452.0" style="-fx-border-color: #ffc929; -fx-border-width: 2px;">
+         <children>
+            <Text fx:id="titleResult" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Giao dịch" wrappingWidth="452.0">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
+            <Text fx:id="contentResult" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Giao dịch" wrappingWidth="452.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Label fx:id="result" layoutX="300.0" layoutY="37.0" prefHeight="44.0" prefWidth="214.0" text="Kết quả giao dịch">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="42.0" fitWidth="41.0" layoutX="231.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/ok.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
