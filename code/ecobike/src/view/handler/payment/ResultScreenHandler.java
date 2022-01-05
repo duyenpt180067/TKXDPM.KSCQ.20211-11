@@ -24,6 +24,8 @@ public class ResultScreenHandler extends BaseScreenHandler{
 	@FXML Text titleResult;
 	 
 	@FXML Text contentResult;
+	
+	@FXML Text amoutResult1;
 	 
 //	@FXML Text account;
 //	 
@@ -31,7 +33,6 @@ public class ResultScreenHandler extends BaseScreenHandler{
 //	 
 //	@FXML Text service;
 //	 
-//	@FXML Text amount;
 //	 
 //	@FXML Text content;
 	 
@@ -45,21 +46,16 @@ public class ResultScreenHandler extends BaseScreenHandler{
 
 	}
 
-	public ResultScreenHandler(Stage stage, String screenPath, String status, String message) throws IOException {
+	public ResultScreenHandler(Stage stage, String screenPath, String status, String message, String amount) throws IOException {
 		super(stage, screenPath);
 		titleResult.setText(status);
 		contentResult.setText(message);
+		contentResult.setText(amount);
 	}
 	public ResultScreenHandler(Stage stage, String screenPath, Map<String, String> response, Invoice invoice) throws IOException {
 		super(stage, screenPath);
 		titleResult.setText(response.get(""));
 		contentResult.setText(response.get(""));
-//		time.setText(response.get("transaction.createAt"));
-//		transactionId.setText(response.get("transaction.transactionId"));
-//		account.setText(response.get("transaction.cardCode") +" "+response.get("transaction.owner"));
-//		service.setText("Dịch vụ thuê xe đạp");
-//		amount.setText(invoice.getAmount()+"");
-//		content.setText(invoice.getContent());
 	}
 	
 	@FXML

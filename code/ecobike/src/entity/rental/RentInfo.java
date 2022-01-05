@@ -33,9 +33,8 @@ public class RentInfo {
 	private int returnDockId;
 	private int returnCellId;
 	private int rentAmount;
-	
-	
-	
+	private int startCellId;
+	private int startDockId;
 	
 	public RentInfo() {
 		super();
@@ -67,26 +66,26 @@ public class RentInfo {
 
 	/**.
  * Save rentInfo into database 
+	 * @throws SQLException 
  */
 	
 	
 
-	public void saveInitalRentInfo(){
+	public void saveInitalRentInfo() throws SQLException{
 	      String sql = "INSERT INTO 'RENT_INFO' (startTime,rentType, depositAmount, isComplete, BIKEid) VALUES (?, ?, ?, ?,?)";
 //	      Connection conn = EcobikeDB.getConnection();
 //	      PreparedStatement prestat = null;
-	      try(
-	    		  Connection conn = EcobikeDB.getConnection();
-	    		  PreparedStatement prestat = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-	    		  )
+	      Connection conn = EcobikeDB.getConnection();
+		  PreparedStatement prestat = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+	      try
 	      {
 	    	  System.out.println("bat dau insert");
 	         
 	         prestat.setString(1, this.startTime.toString());
 	         prestat.setString(2, this.rentType);
 	         prestat.setInt(3, this.depositAmount);
-	         prestat.setInt(4, this.bike.getId());
-	         prestat.setInt(5, 0);
+	         prestat.setInt(4, 0);
+	         prestat.setInt(5, this.bike.getId());
 	         
 	         prestat.executeUpdate();
 	         ResultSet resultUpdate = prestat.getGeneratedKeys();
@@ -95,17 +94,33 @@ public class RentInfo {
 	      } catch (SQLException throwables) {
 	         throwables.printStackTrace();
 	      } finally {
-	        
+	    	  prestat.close();
 	      }
 	   }
 	
+	public int getStartCellId() {
+		return startCellId;
+	}
+
+	public void setStartCellId(int startCellId) {
+		this.startCellId = startCellId;
+	}
+
+	public int getStartDockId() {
+		return startDockId;
+	}
+
+	public void setStartDockId(int startDockId) {
+		this.startDockId = startDockId;
+	}
+
 	public void saveFullRentInfo() throws SQLException {
-        String sql = "UPDATE RENT_INFO SET endTime = ? , "
-                + "rentedPeriod = ? "
-                + "rentAmount = ? "
-                + "isComplete = ?"
-                + "returnDockId = ?"
-                + "returnCellId = ?"
+        String sql = "UPDATE RENT_INFO SET endTime = ?, "
+                + "rentedPeriod = ?, "
+                + "rentAmount = ?, "
+                + "isComplete = ?, "
+                + "returnDockId = ?, "
+                + "returnCellId = ? "
                 + "WHERE id = ?";
         Connection conn = EcobikeDB.getConnection();
 	      PreparedStatement prestat = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);

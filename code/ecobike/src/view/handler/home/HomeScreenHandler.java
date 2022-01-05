@@ -74,13 +74,19 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 
 	private void handleRentedBikeInfoScreen() {
 		// TODO Auto-generated method stub
-		RentedBikeInfoScreenHandler rentedBikeInfoScreenHandler;
-		try {
-			rentedBikeInfoScreenHandler = new RentedBikeInfoScreenHandler(stage, Configs.RENTED_BIKE_INFO_PATH);
-			rentedBikeInfoScreenHandler.show();
-		} catch (IOException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(RentInfo.getRentInfo() == null) {
+			
+		}
+		else {
+
+			RentedBikeInfoScreenHandler rentedBikeInfoScreenHandler;
+			try {
+				rentedBikeInfoScreenHandler = new RentedBikeInfoScreenHandler(stage, Configs.RENTED_BIKE_INFO_PATH);
+				rentedBikeInfoScreenHandler.show();
+			} catch (IOException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
