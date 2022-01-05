@@ -23,54 +23,54 @@
          <children>
             <ImageView fitHeight="87.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/logo-icon.PNG" />
+                  <Image url="@../../../../assets/images/logo-icon.PNG" />
                </image>
             </ImageView>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 24px;" text="EcobikeRental - Dá»‹ch vá»¥ cho thuÃª xe Ä‘áº¡p Ecopark tiá»‡n Ã­ch" wrappingWidth="650.763671875" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 24px;" text="EcobikeRental - Dịch vụ cho thuê xe đạp Ecopark tiện ích" wrappingWidth="650.763671875" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="644.0" prefWidth="1366.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
             <Pane prefHeight="638.0" prefWidth="807.0" style="-fx-border-color: #f0a902; -fx-border-width: 2px;">
                <children>
-                  <Text layoutX="31.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Thanh toÃ¡n" wrappingWidth="211.0" />
-                  <Text layoutX="62.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Loáº¡i xe" wrappingWidth="109.81481933593739" />
+                  <Text layoutX="31.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Thanh toán" wrappingWidth="211.0" />
+                  <Text layoutX="62.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Loại xe" wrappingWidth="109.81481933593739" />
                   <Text layoutX="141.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" wrappingWidth="109.81481933593739" />
-                  <Text fx:id="type" layoutX="229.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Xe Ä‘áº¡p Ä‘iá»‡n Ä‘Æ¡n" wrappingWidth="211.0" />
-                  <Text layoutX="444.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Há»‡ sá»‘ giÃ¡" wrappingWidth="156.21484374999977" />
+                  <Text fx:id="type" layoutX="229.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Xe đạp điện đơn" wrappingWidth="211.0" />
+                  <Text layoutX="444.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Hệ số giá" wrappingWidth="156.21484374999977" />
                   <Text fx:id="multiple" layoutX="579.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="x1.5" textAlignment="RIGHT" wrappingWidth="178.61485290527338" />
-                  <Text layoutX="62.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Thá»�i gian thuÃª" wrappingWidth="156.2148437499999" />
-                  <Text fx:id="time" layoutX="209.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="85 phÃºt" textAlignment="RIGHT" wrappingWidth="178.61485290527338" />
-                  <Text layoutX="33.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Nháº­p thÃ´ng tin thanh toÃ¡n" wrappingWidth="284.5999755859375" />
-                  <Text layoutX="108.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="NgÃ¢n hÃ ng phÃ¡t hÃ nh" wrappingWidth="210.9999999999999" />
-                  <Text layoutX="115.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Sá»‘ tháº»" wrappingWidth="109.81481933593739" />
+                  <Text layoutX="62.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Thời gian thuê" wrappingWidth="156.2148437499999" />
+                  <Text fx:id="time" layoutX="209.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="85 phút" textAlignment="RIGHT" wrappingWidth="178.61485290527338" />
+                  <Text layoutX="33.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Nhập thông tin thanh toán" wrappingWidth="284.5999755859375" />
+                  <Text layoutX="108.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Ngân hàng phát hành" wrappingWidth="210.9999999999999" />
+                  <Text layoutX="115.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Số thẻ" wrappingWidth="109.81481933593739" />
                   <TextField fx:id="cardNumber" layoutX="413.0" layoutY="397.0" prefHeight="32.0" prefWidth="254.0" style="-fx-font-size: 16px;" />
-                  <Text layoutX="109.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="TÃªn chá»§ tháº»" wrappingWidth="121.81481933593739" />
+                  <Text layoutX="109.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Tên chủ thẻ" wrappingWidth="121.81481933593739" />
                   <TextField fx:id="cardHolder" layoutX="411.0" layoutY="445.0" prefHeight="32.0" prefWidth="254.0" style="-fx-font-size: 16px;" />
-                  <Text layoutX="110.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="NgÃ y háº¿t háº¡n" wrappingWidth="121.81481933593739" />
+                  <Text layoutX="110.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Ngày hết hạn" wrappingWidth="121.81481933593739" />
                   <TextField fx:id="expirationDate" layoutX="410.0" layoutY="492.0" prefHeight="32.0" prefWidth="254.0" style="-fx-font-size: 16px;" />
-                  <Text layoutX="112.0" layoutY="559.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="MÃ£ báº£o máº­t CVV" wrappingWidth="156.2148437499999" />
+                  <Text layoutX="112.0" layoutY="559.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Mã bảo mật CVV" wrappingWidth="156.2148437499999" />
                   <TextField fx:id="securityCode" layoutX="410.0" layoutY="538.0" prefHeight="32.0" prefWidth="254.0" style="-fx-font-size: 16px;" />
                   <ChoiceBox fx:id="bankName" layoutX="413.0" layoutY="354.0" prefHeight="32.0" prefWidth="254.0" />
-                  <Button fx:id="btnConfirmPayment" layoutX="298.0" layoutY="584.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="211.0" onMouseClicked="#confirmToPayOrder" style="-fx-background-color: #84ba42; -fx-font-weight: bold;" text="Thá»±c hiá»‡n thanh toÃ¡n" textFill="WHITE">
+                  <Button layoutX="298.0" layoutY="584.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="211.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold;" text="Thực hiện thanh toán" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Text layoutX="62.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Tiá»�n thuÃª" wrappingWidth="156.2148437499999" />
+                  <Text layoutX="62.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Tiền thuê" wrappingWidth="156.2148437499999" />
                   <Text fx:id="amount" layoutX="209.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="33, 000 VND" textAlignment="RIGHT" wrappingWidth="178.61485290527338" />
-                  <Text layoutX="67.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Báº¡n cÃ³ muá»‘n thanh toÃ¡n trÃªn tÃ i khoáº£n Ä‘áº·t cá»�c tiá»�n khÃ´ng?" wrappingWidth="543.4147949218749" />
-                  <RadioButton layoutX="215.0" layoutY="306.0" mnemonicParsing="false" text="CÃ³">
+                  <Text layoutX="67.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Bạn có muốn thanh toán trên tài khoản đặt cọc tiền không?" wrappingWidth="543.4147949218749" />
+                  <RadioButton layoutX="215.0" layoutY="306.0" mnemonicParsing="false" text="Có">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton layoutX="350.0" layoutY="306.0" mnemonicParsing="false" text="KhÃ´ng">
+                  <RadioButton layoutX="350.0" layoutY="306.0" mnemonicParsing="false" text="Không">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </RadioButton>
-                  <Text layoutX="61.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Tiá»�n cá»�c sáº½ Ä‘Æ°á»£c hoÃ n láº¡i sau khi báº¡n thanh toÃ¡n thÃ nh cÃ´ng tiá»�n thuÃª xe" wrappingWidth="685.0147705078124" />
+                  <Text layoutX="61.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Tiền cọc sẽ được hoàn lại sau khi bạn thanh toán thành công tiền thuê xe" wrappingWidth="685.0147705078124" />
                </children>
             </Pane>
          </children>

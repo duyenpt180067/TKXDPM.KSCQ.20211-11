@@ -72,17 +72,13 @@ public class PaymentController extends BaseController{
 			result.put("AMOUNT", amount+"");
 			
 			if(contents == "deposit") {
-				LOGGER.info("DEPOSIT");
+
 				Cell cellStart = Cell.getCellInDockByBike(invoice.getRentInfo().getBike().getId());
-				LOGGER.info("bike at : dock " + cellStart.getDockId() + " cell : " + cellStart.getNo());
-				this.card.save(); 
+				this.card.save();
 				invoice.getRentInfo().saveInitalRentInfo();
-				
 				RentInfo renInfo = RentInfo.getRentInfo();
-				LOGGER.info("GET RENT INFO: " +renInfo.getId());
 				invoice.setRentInfo(renInfo);
 				cellStart.removeBikeLocation();
-				
 			}
 			else if(contents == "pay") {
 				//Cell cellStart = Cell.getCellInDockByBike(invoice.getRentInfo().getBike().getId());
