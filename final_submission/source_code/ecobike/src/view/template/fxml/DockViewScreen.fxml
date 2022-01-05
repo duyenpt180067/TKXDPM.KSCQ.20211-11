@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="85.0" prefWidth="1366.0" style="-fx-background-color: #84ba42;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="87.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../assets/images/logo-icon.PNG" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 24px;" text="EcobikeRental - Dịch vụ cho thuê xe đạp Ecopark tiện ích" wrappingWidth="650.763671875" />
+         </children>
+      </HBox>
+      <Pane layoutY="85.0" prefHeight="274.0" prefWidth="1366.0" style="-fx-border-color: #e5e5e5;" AnchorPane.leftAnchor="0.0">
+         <children>
+            <Pane layoutX="654.0" layoutY="41.0" prefHeight="208.0" prefWidth="593.0" style="-fx-border-color: #f0a902; -fx-border-width: 2px;">
+               <children>
+                  <Text fx:id="dockNameText" layoutX="31.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Bãi xe số 1" wrappingWidth="211.0" />
+                  <Text layoutX="32.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Địa chỉ" wrappingWidth="96.21484375" />
+                  <Text fx:id="dockAddressText" layoutX="179.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Khu 12, Đường Minh Xuân, khu đô thị EcoPark" wrappingWidth="327.41485595703125" />
+                  <Text layoutX="32.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Diện tích" wrappingWidth="96.21484375" />
+                  <Text fx:id="dockAreaText" layoutX="174.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="100m2" wrappingWidth="96.21484375" />
+                  <Text layoutX="31.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Số lượng xe" wrappingWidth="141.8148193359375" />
+                  <Text fx:id="dockNumBikeText" layoutX="173.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="20" wrappingWidth="96.21484375" />
+                  <Text layoutX="276.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Số ô xe trống" wrappingWidth="154.6148681640625" />
+                  <Text fx:id="numEmptyCellText" layoutX="473.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="5" wrappingWidth="134.21484375" />
+               </children>
+            </Pane>
+            <ImageView fx:id="dockImage" fitHeight="230.0" fitWidth="400.0" layoutX="120.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      <ScrollPane layoutX="38.0" layoutY="439.0" prefHeight="406.0" prefWidth="1366.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <content>
+            <VBox fx:id="cellsVbox" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="387.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="365.0" layoutY="-25.0" prefHeight="489.0" prefWidth="543.0" style="-fx-border-color: #f0a902; -fx-border-width: 2px;" AnchorPane.leftAnchor="365.0" AnchorPane.rightAnchor="457.79999999999995" />
+      <Button fx:id="homeBackBtn" layoutX="260.0" layoutY="286.0" mnemonicParsing="false" onMouseClicked="#backToHome" prefHeight="38.0" prefWidth="211.0" style="-fx-background-color: #84ba42; -fx-font-weight: bold; -fx-font-size: 18px;" text="Quay lại trang home" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Pane layoutX="141.0" layoutY="94.0" prefHeight="173.0" prefWidth="452.0" style="-fx-border-color: #ffc929; -fx-border-width: 2px;">
+         <children>
+            <Text fx:id="titleResult" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Giao dịch" wrappingWidth="452.0">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
+            <Text fx:id="contentResult" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Giao dịch" wrappingWidth="452.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="amountResult" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Giao dịch" wrappingWidth="452.0">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Label fx:id="result" layoutX="292.0" layoutY="34.0" prefHeight="44.0" prefWidth="214.0" text="Kết quả giao dịch">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="42.0" fitWidth="41.0" layoutX="223.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../assets/images/logo-icon.PNG" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
