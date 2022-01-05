@@ -32,7 +32,7 @@ public class PaymentTransaction {
 	 * @throws SQLException 
 	 */
 	public void save() throws SQLException {
-		String sql = "INSERT INTO 'PAYMENT_TRANSACTION' (id, createAt,content,amount,CARDnumber, RENT_INFOid) VALUES (?,?,?,?,?,?)";
+		String sql = "INSERT INTO PAYMENT_TRANSACTION ('id', createAt,content,amount,cardNum, rentInfoId) VALUES (?,?,?,?,?,?)";
 	      Connection conn = EcobikeDB.getConnection();
 		  PreparedStatement prestat = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 	      try
@@ -81,6 +81,14 @@ public class PaymentTransaction {
 
 	public void setRentInfo(RentInfo rentInfo) {
 		this.rentInfo = rentInfo;
+	}
+
+	public CreditCard getCreditCard() {
+		return creditCard;
+	}
+
+	public void setCreditCard(CreditCard creditCard) {
+		this.creditCard = creditCard;
 	}
 	
 	
