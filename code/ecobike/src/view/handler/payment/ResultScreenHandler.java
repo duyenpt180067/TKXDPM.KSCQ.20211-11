@@ -6,6 +6,8 @@ import java.util.Map;
 import entity.payment.Invoice;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 //import entity.payment.Invoice;
@@ -18,23 +20,22 @@ import view.handler.home.HomeScreenHandler;
  * Define the behaviour of ResultScreen
  */
 public class ResultScreenHandler extends BaseScreenHandler{
-	/*
-	 * @FXML Text time;
-	 * 
-	 * @FXML Text transactionId;
-	 * 
-	 * @FXML Text account;
-	 * 
-	 * @FXML Text bank;
-	 * 
-	 * @FXML Text service;
-	 * 
-	 * @FXML Text amount;
-	 * 
-	 * @FXML Text content;
-	 */
-	@FXML
-	Button homeBackBtn;
+	
+	@FXML Text titleResult;
+	 
+	@FXML Text contentResult;
+	 
+//	@FXML Text account;
+//	 
+//	@FXML Text bank;
+//	 
+//	@FXML Text service;
+//	 
+//	@FXML Text amount;
+//	 
+//	@FXML Text content;
+	 
+	@FXML Button homeBackBtn;
 
 	/**
 	 * Display ResultScreen notifying user the result got from InterBank
@@ -46,9 +47,13 @@ public class ResultScreenHandler extends BaseScreenHandler{
 
 	public ResultScreenHandler(Stage stage, String screenPath, String status, String message) throws IOException {
 		super(stage, screenPath);
+		titleResult.setText(status);
+		contentResult.setText(message);
 	}
 	public ResultScreenHandler(Stage stage, String screenPath, Map<String, String> response, Invoice invoice) throws IOException {
 		super(stage, screenPath);
+		titleResult.setText(response.get(""));
+		contentResult.setText(response.get(""));
 //		time.setText(response.get("transaction.createAt"));
 //		transactionId.setText(response.get("transaction.transactionId"));
 //		account.setText(response.get("transaction.cardCode") +" "+response.get("transaction.owner"));

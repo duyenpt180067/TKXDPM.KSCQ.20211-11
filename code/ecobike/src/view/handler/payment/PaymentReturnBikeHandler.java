@@ -1,13 +1,10 @@
 package view.handler.payment;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 import common.exception.UnknownException;
 import controller.PaymentController;
-import controller.ReturnBikeController;
-import entity.dockbike.Bike;
 import entity.payment.Invoice;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -82,19 +79,23 @@ public class PaymentReturnBikeHandler extends BaseScreenHandler  {
 	
 	@FXML
 	public void confirmToPayOrder() throws UnknownException, Exception {
-		String contents = "pay order";
+		String contentsPay = "pay order";
+		String contentsRefund = "refund order";
 		setBController(new PaymentController());
 		PaymentController ctrl = (PaymentController) getBController();
-		Map<String, String> response = ctrl.payOrder(0, contents, cardNumber.getText(), cardHolder.getText(),
+		Map<String, String> response = ctrl.pay(0, contentsPay, cardNumber.getText(), cardHolder.getText(),
 				expirationDate.getText(), securityCode.getText());
-
-		BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH, response.get("RESULT"), response.get("MESSAGE") );
+		Map<String, String> resRefund = ctrl.refund(0, contentsRefund, cardNumber.getText(), cardHolder.getText(),
+				expirationDate.getText(), securityCode.getText());
+		BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH, response.get("RESULT") +"\n"+ resRefund.get("RESULT"), response.get("MESSAGE") + "\n"+resRefund.get("MESSAGE"));
 		resultScreen.setPreviousScreen(this);
 		resultScreen.setHomeScreenHandler(homeScreenHandler);
 		resultScreen.setScreenTitle("Result Screen");
 		resultScreen.show();
 		
 	}
+	
+	
 	
 	public PaymentController getBController() {
 		return (PaymentController) super.getBController();
