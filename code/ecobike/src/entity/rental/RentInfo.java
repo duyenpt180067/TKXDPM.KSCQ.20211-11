@@ -50,7 +50,6 @@ public class RentInfo {
 		this.rentType = rentType;
 		this.bike = bike;
 		this.isComplete = false;
-		
 	}
 
 	public RentInfo(int id, String startTime, String endTime, String rentType, int rentedPeriod,

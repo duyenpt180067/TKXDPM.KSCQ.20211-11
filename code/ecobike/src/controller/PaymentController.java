@@ -1,21 +1,14 @@
 package controller;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import common.exception.InvalidCardException;
-import common.exception.InvalidFormInputException;
 import common.exception.PaymentException;
 import common.exception.UnknownException;
-import common.exception.UnrecognizedException;
 import entity.payment.PaymentTransaction;
-import subsystem.InterbankInterface;
+import subsystem.InterbankPayInterface;
+import subsystem.InterbankRefundInterface;
 import subsystem.InterbankSubsystem;
 import utils.Utils;
 import entity.payment.CreditCard;
@@ -30,7 +23,10 @@ public class PaymentController extends BaseController{
 	private static Logger LOGGER = Utils.getLogger(PaymentController.class.getName());
 	
 	private CreditCard card;
-	private InterbankInterface interbank;
+	private InterbankPayInterface interbankPay;
+	private InterbankRefundInterface interbankRefund;
+	
+	
 	/**
 	 * Forward payment request to InterBank and receive its result as payment transaction
 	 * @param creditCard - card used for payment
@@ -39,148 +35,77 @@ public class PaymentController extends BaseController{
 	 * @throws PaymentException if response has predefined error code
 	 * @throws UnknownException if error code is unknown or something goes wrong
 	 */
-	
-	
 	public PaymentTransaction processPayment(CreditCard creditCard, Invoice invoice)  {
 		
 		return null;
 	}
 	
-	public Map<String, String> payOrder(int amount, String contents, String cardNumber, String cardHolderName,
-			String expirationDate, String securityCode) throws UnknownException, Exception {
+	/**
+	 * request to pay
+	 * @param amount amount of transaction
+	 * @param contents amount of transaction
+	 * @param cardNumber of card used
+	 * @param cardHolderName of card used
+	 * @param expirationDate of card used
+	 * @param securityCode of card used
+	 * @return a result include status and message
+	 * @throws UnknownException if error code is unknown or something goes wrong
+	 * @throws PaymentException if response has predefined error code
+	 * @throws Exception
+	 */
+	public Map<String, String> pay(int amount, String contents, String cardNumber, String cardHolderName,
+			String expirationDate, String securityCode) throws UnknownException, PaymentException, Exception {
 		Map<String, String> result = new Hashtable<String, String>();
 		result.put("RESULT", "PAYMENT FAILED!");
 		try {
 			this.card = new CreditCard(cardNumber, cardHolderName, Integer.parseInt(securityCode),
-					getExpirationDate(expirationDate));
+					CreditCard.getExpirationDate(expirationDate));
 			LOGGER.info("create card"+this.card.toString());
 		
-			this.interbank = new InterbankSubsystem();
-			PaymentTransaction transaction = interbank.payOrder(card, amount, contents);
+			this.interbankPay = new InterbankSubsystem();
+			PaymentTransaction transaction = interbankPay.pay(card, amount, contents);
 
 			result.put("RESULT", "PAYMENT SUCCESSFUL!");
-			result.put("MESSAGE", "You have succesffully paid the order!");
+			result.put("MESSAGE", "You have succesffully paid!");
 			result.put("transaction", transaction.toString());
 		} catch (PaymentException | UnknownError ex) {
 			result.put("MESSAGE", ex.getMessage());
 		}
 		return result;
 	}
-
+	
 	/**
-	 * @param info - card information submited by user
-	 * @return 1 if all fields are filled with valid input
-	 * @throws InvalidFormInputException if any required field is empty or input is invalid
+	 * request to refund to card
+	 * @param amount amount of transaction
+	 * @param contents amount of transaction
+	 * @param cardNumber of card used
+	 * @param cardHolderName of card used
+	 * @param expirationDate of card used
+	 * @param securityCode of card used
+	 * @return a result include status and message
+	 * @throws UnknownException if error code is unknown or something goes wrong
+	 * @throws PaymentException if response has predefined error code
+	 * @throws Exception
 	 */
-	public boolean validatePaymentForm(CreditCard info) throws InvalidFormInputException {
-		return true;
-	}
-	
-	/***
-	 * validate date or expiration date
-	 * @param date
-	 * @return
-	 */
-	public boolean validateDate(String date, boolean isExpirationDate) {
-    	if(date == null || date.trim().isEmpty() ) {
-    		return false;
-    	}
-    	else {
-    		if (date.matches("([0-9]{2})/([0-9]{2})/([0-9]{4})"))
-    			if(isExpirationDate) {
-    				String[] eDate = date.split("/");
-    				String pattern = "dd-MM-yyyy";
-    				String now = new SimpleDateFormat(pattern).format(new Date());
-    				String[] eNow = now.split("-");
-					if ((eDate[2].compareTo(eNow[2]) < 0) 
-							|| ((eDate[2].compareTo(eNow[2]) == 0) && (eDate[1].compareTo(eNow[1]) < 0))
-							|| ((eDate[2].compareTo(eNow[2]) == 0) && (eDate[1].compareTo(eNow[1]) == 0) && (eDate[0].compareTo(eNow[0]) < 0))) {
-						return false;
-					}
-					else {
-						return true;
-					}
-    			}
-    			else return true;
-    		else
-    		   return false;
-    	}
-    }
-	
-	/***
-	 * validate card number
-	 * @param cardNumber
-	 * @return
-	 */
-	public boolean validateCardNumber(String cardNumber) {
-    	if(cardNumber == null || cardNumber.trim().isEmpty() || cardNumber.length() > 50) {
-    		return false;
-    	}
-    	else {
-    		if (cardNumber.matches("([a-z0-9_-]){1,50}"))
-    		    return true;
-    		else
-    		   return false;
-    	}
-    }
-	
-	/***
-	 * validate name
-	 * @param name
-	 * @return
-	 */
-	public boolean validateName(String name) {
-    	if(name == null || name.trim().isEmpty() || name.length() > 20) {
-    		return false;
-    	}
-    	else {
-    		if (name.matches("([a-z0-9_-]){1,20}"))
-    		    return true;
-    		else
-    		   return false;
-    	}
-    }
-	
-	/***
-	 * validate cvv number
-	 * @param cvv
-	 * @return
-	 */
-	public boolean validateCVVNumber(String cvv) {
-		if(cvv == null || cvv.trim().isEmpty() || cvv.length() > 20) {
-    		return false;
-    	}
-    	else {
-    		if (cvv.matches("([0-9]){1,20}"))
-    		    return true;
-    		else
-    		   return false;
-    	} 
-	}
-	
-	private String getExpirationDate(String date) throws InvalidCardException {
-		String[] strs = date.split("/");
-		if (strs.length != 2) {
-			throw new InvalidCardException();
-		}
-
-		String expirationDate = null;
-		int month = -1;
-		int year = -1;
-
+	public Map<String, String> refund(int amount, String contents, String cardNumber, String cardHolderName,
+			String expirationDate, String securityCode) throws UnknownException, Exception {
+		Map<String, String> result = new Hashtable<String, String>();
+		result.put("RESULT", "REFUND FAILED!");
 		try {
-			month = Integer.parseInt(strs[0]);
-			year = Integer.parseInt(strs[1]);
-			if (month < 1 || month > 12 || year < Calendar.getInstance().get(Calendar.YEAR) % 100 || year > 100) {
-				throw new InvalidCardException();
-			}
-			expirationDate = strs[0] + strs[1];
+			this.card = new CreditCard(cardNumber, cardHolderName, Integer.parseInt(securityCode),
+					CreditCard.getExpirationDate(expirationDate));
+			LOGGER.info("create card"+this.card.toString());
+		
+			this.interbankRefund = new InterbankSubsystem();
+			PaymentTransaction transaction = interbankRefund.refund(card, amount, contents);
 
-		} catch (Exception ex) {
-			throw new InvalidCardException();
+			result.put("RESULT", "REFUND SUCCESSFUL!");
+			result.put("MESSAGE", "You have been successfully refunded!");
+			result.put("transaction", transaction.toString());
+		} catch (PaymentException | UnknownError ex) {
+			result.put("MESSAGE", ex.getMessage());
 		}
-
-		return expirationDate;
+		return result;
 	}
 
 }

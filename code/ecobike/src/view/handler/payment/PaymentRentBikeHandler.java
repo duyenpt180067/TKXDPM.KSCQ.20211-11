@@ -74,10 +74,13 @@ private Invoice invoice;
 		setBController(new PaymentController());
 		PaymentController ctrl = (PaymentController) getBController();
 //		invoice.getAmount()
-		Map<String, String> response = ctrl.payOrder(0, contents, cardNumber.getText(), cardHolder.getText(),
+		Map<String, String> response = ctrl.pay(0, contents, cardNumber.getText(), cardHolder.getText(),
 				expirationDate.getText(), securityCode.getText());
 //		if(response.get("RESULT").toLowerCase().contains("fail")) {
 			BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH, response.get("RESULT"), response.get("MESSAGE") );
+			resultScreen.setPreviousScreen(this);
+			resultScreen.setHomeScreenHandler(homeScreenHandler);
+			resultScreen.setScreenTitle("Result Screen");
 			resultScreen.show();
 //		}
 //		else {

@@ -53,7 +53,7 @@ public class RentBikeController {
 		infoMap.put("type", rentInfo.getBike().getName());
 		
 		LocalDateTime nowDateTime = LocalDateTime.now();
-		String nowString = nowDateTime.toString();	
+		//String nowString = nowDateTime.toString();	
 
 		
 		LocalDateTime startTime = LocalDateTime.parse(rentInfo.getStartTime());

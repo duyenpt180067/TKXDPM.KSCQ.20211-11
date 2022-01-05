@@ -40,6 +40,7 @@ public class ReturnBikeScreenHandler extends BaseScreenHandler {
 	@FXML
 	Button returnBikeBtn;
 	
+	ReturnBikeScreenHandler bController;
 	/**
 	 * Display info in screen
 	 */

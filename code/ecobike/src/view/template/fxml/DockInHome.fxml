@@ -11,7 +11,7 @@
       <Pane layoutX="6.0" prefHeight="158.0" prefWidth="417.0">
          <children>
             <ImageView fx:id="dockImage" fitHeight="140.0" fitWidth="150.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
-            <Text fx:id="dockNameText" layoutX="222.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="Bãi xe số 4" />
+            <Text fx:id="dockNameText" layoutX="222.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="B�i xe số 4" />
             <Text fx:id="numBikeText" layoutX="322.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 20px;" text="20" />
             <Text layoutX="222.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Số lượng xe:" wrappingWidth="89.21484375" />
             <Text fx:id="dockAddressText" layoutX="222.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vị trí bãi" wrappingWidth="89.21484375" />

@@ -27,20 +27,16 @@ public class InterbankSubsystemController {
 	private static final String PUBLIC_KEY = "BG27oFKhwgQ=";
 	private static final String SECRET_KEY = "BVHgnb5B4WQ=";
 	private static final String PAY_COMMAND = "pay";
+	private static final String REFUND_COMMAND = "refund";
 	private static final String VERSION = "1.0.0";
 
 	private static InterbankBoundary interbankBoundary = new InterbankBoundary();
-
-	public PaymentTransaction refund(CreditCard card, int amount, String contents)  {
-		
-		return null;
-	}
 	
 	private String generateData(Map<String, Object> data) {
 		return ((MyMap) data).toJSON();
 	}
 
-	public PaymentTransaction payOrder(CreditCard card, int amount, String contents) throws Exception {
+	public PaymentTransaction pay(CreditCard card, int amount, String contents) throws Exception {
 		Map<String, Object> transaction = new MyMap();
 
 		try {
@@ -70,6 +66,37 @@ public class InterbankSubsystemController {
 		return makePaymentTransaction(response);
 	}
 
+	public PaymentTransaction refund(CreditCard card, int amount, String contents) throws Exception {
+		Map<String, Object> transaction = new MyMap();
+
+		try {
+			transaction.putAll(MyMap.toMyMap(card));
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			throw new InvalidCardException();
+		}
+		transaction.put("command", REFUND_COMMAND);
+		transaction.put("transactionContent", contents);
+		transaction.put("amount", amount);
+		transaction.put("createdAt", Utils.getToday());
+
+		Map<String, Object> requestMap = new MyMap();
+		requestMap.put("version", VERSION);
+		requestMap.put("transaction", transaction);
+
+		String responseText = interbankBoundary.query(Configs.PROCESS_TRANSACTION_URL, generateData(requestMap));
+		MyMap response = null;
+		try {
+			response = MyMap.toMyMap(responseText, 0);
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+			throw new UnrecognizedException();
+		}
+
+		return makePaymentTransaction(response);
+	}
+
+	
 	private PaymentTransaction makePaymentTransaction(MyMap response) throws PaymentException {
 		if (response == null)
 			return null;
