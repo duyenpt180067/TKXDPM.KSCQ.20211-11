@@ -20,6 +20,7 @@ import view.handler.payment.ResultScreenHandler;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -130,8 +131,8 @@ public class BikeInfoScreenHandler extends BaseScreenHandler {
 		else{
 			type = RentInfo.ONEDAY_RENT_TYPE;
 		}
-		Date today = new Date();
-		RentInfo rentInfo = new RentInfo(today.toString(), type, bike);
+		LocalDateTime today =LocalDateTime.now();
+		RentInfo rentInfo = new RentInfo(today, type, bike);
 		Invoice invoice = new Invoice("Thanh toan tien dat coc", rentInfo.getBike().getComposit(), rentInfo);
 		BaseScreenHandler paymentScreen = new PaymentRentBikeHandler(this.stage, Configs.PAYMENT_SCREEN_RENT_BIKE_PATH, invoice);
 		paymentScreen.setPreviousScreen(this);

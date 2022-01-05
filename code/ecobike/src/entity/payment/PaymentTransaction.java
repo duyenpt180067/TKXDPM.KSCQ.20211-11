@@ -1,15 +1,20 @@
 package entity.payment;
 
+import entity.db.EcobikeDB;
+import entity.dockbike.Bike;
 import entity.rental.RentInfo;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Date;
 
 
 public class PaymentTransaction {
 
-	private int id;
-
-	private String method;
+	private String id;
 
 	private String content;
 
@@ -24,8 +29,33 @@ public class PaymentTransaction {
 
 	/**
 	 * Save its object in database
+	 * @throws SQLException 
 	 */
-	public void save() {
+	public void save() throws SQLException {
+		String sql = "INSERT INTO 'PAYMENT_TRANSACTION' (id, createAt,content,amount,CARDnumber, RENT_INFOid) VALUES (?,?,?,?,?,?)";
+	      Connection conn = EcobikeDB.getConnection();
+		  PreparedStatement prestat = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+	      try
+	      {
+	    	  System.out.println("bat dau insert");
+	         
+	         prestat.setString(1, this.id);
+	         prestat.setString(2, this.createAt);
+	         prestat.setString(3, this.content);
+	         prestat.setInt(4, this.amount);
+	         prestat.setString(5, creditCard.getCardCode());
+	         prestat.setInt(6, this.rentInfo.getId());
+	         
+	         prestat.executeUpdate();
+	         ResultSet resultUpdate = prestat.getGeneratedKeys();
+	         System.out.println("Save Payment Transaction: " + resultUpdate);
+	         
+
+	      } catch (SQLException throwables) {
+	         throwables.printStackTrace();
+	      } finally {
+	        
+	      }
 
 	}
 	
@@ -34,7 +64,7 @@ public class PaymentTransaction {
 		super();
 		this.errorCode = errorCode;
 		this.creditCard = creditCard;
-		this.id = id;
+		this.id = transactionId;
 		this.content = transactionContent;
 		this.amount = amount;
 		this.createAt = createdAt;
@@ -44,8 +74,13 @@ public class PaymentTransaction {
 		return errorCode;
 	}
 	
-	public static PaymentTransaction gePaymentTransactionFromRentInfoId() {
-		return null;
+	
+	public RentInfo getRentInfo() {
+		return rentInfo;
+	}
+
+	public void setRentInfo(RentInfo rentInfo) {
+		this.rentInfo = rentInfo;
 	}
 	
 	

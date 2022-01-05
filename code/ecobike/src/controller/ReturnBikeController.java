@@ -1,6 +1,7 @@
 package controller;
 
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import common.exception.EntityNotFoundException;
@@ -16,7 +17,7 @@ import entity.rental.RentInfo;
  *
  */
 public class ReturnBikeController extends BaseController {
-	public RentInfo rentInfo;
+	private RentInfo rentInfo;
 	
 	public ReturnBikeController(RentInfo rentInfo) {
 		this.rentInfo = rentInfo;
@@ -31,8 +32,9 @@ public class ReturnBikeController extends BaseController {
 	 * save invoice (in database)
 	 * @param bike
 	 */
-	public void returnBike(Bike bike) {
-		
+	public void returnBikeProcess(int returnCellId, int returnDockId) {
+		LocalDateTime nowDateTime = LocalDateTime.now();
+		rentInfo.updateReturnInfo(nowDateTime, returnDockId, returnCellId);
 	}
 	
 	/**
@@ -55,7 +57,6 @@ public class ReturnBikeController extends BaseController {
 	 */
 	
 	public List<Cell> getEmptyCellIndock(Dock dock) throws EntityNotFoundException, SQLException {
-		getRentInfo();
 		return Cell.getEmptyCellInDockForBike(dock.getId(), rentInfo.getBike().getName());
 		
 	}
@@ -65,26 +66,13 @@ public class ReturnBikeController extends BaseController {
 	 * @return new invoice 
 	 */
 	public Invoice createInvoice() {
-		int amount = calculateRentAmount();
+		int amount = rentInfo.getRentAmount();
 		String contentString = "tra tien thue xe";
 		Invoice invoice = new Invoice(contentString,amount,rentInfo);
 		return invoice;
 	}
 	
-	/**
-	 * Calculate rent amount
-	 * @return 
-	 */
-	public int calculateRentAmount() {
-		int amount =  (int) (rentInfo.getAmount(rentInfo.getRentedPeriod()) );
-		return amount;
-	}
-	
-	/**
-	 * Get RentInfo, get from database if rentInfo has not been initalize
-	 * @return
-	 * @throws SQLException
-	 */
+
 	public RentInfo getRentInfo() throws SQLException {
 		
 		return rentInfo;
