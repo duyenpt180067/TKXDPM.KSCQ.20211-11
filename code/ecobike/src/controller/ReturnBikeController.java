@@ -57,7 +57,7 @@ public class ReturnBikeController extends BaseController {
 	 */
 	
 	public List<Cell> getEmptyCellIndock(Dock dock) throws EntityNotFoundException, SQLException {
-		return Cell.getEmptyCellInDockForBike(dock.getId(), rentInfo.getBike().getName());
+		return Cell.getEmptyCellInDockForBike(dock.getId(), rentInfo.getBike().getType());
 		
 	}
 	

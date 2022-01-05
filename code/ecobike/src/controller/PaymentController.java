@@ -72,6 +72,7 @@ public class PaymentController extends BaseController{
 			result.put("AMOUNT", amount+"");
 			
 			if(contents == "deposit") {
+
 				Cell cellStart = Cell.getCellInDockByBike(invoice.getRentInfo().getBike().getId());
 				this.card.save();
 				invoice.getRentInfo().saveInitalRentInfo();

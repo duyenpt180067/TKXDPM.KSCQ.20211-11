@@ -5,6 +5,7 @@ import java.util.Map;
 
 import common.exception.UnknownException;
 import controller.PaymentController;
+import entity.payment.CreditCard;
 import entity.payment.Invoice;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -37,17 +38,16 @@ public class PaymentReturnBikeHandler extends BaseScreenHandler  {
 	public PaymentReturnBikeHandler(Stage stage, String screenPath, Invoice invoice) throws IOException {
 		super(stage, screenPath);
 		this.invoice = invoice;
+		CreditCard card = invoice.getRentInfo().getDepositCard();
+		System.out.println(card.getCardCode());
 		this.setScreenTitle("Return Bike Screen");
-		cardNumber.setText("kscq1_group11_2021");
-		cardHolder.setText("Group 11");
+		cardNumber.setText(card.getCardCode());
+		cardHolder.setText(card.getOwner());
 		expirationDate.setText("11/25");
-//		btnConfirmPayment.setOnMouseClicked(e -> {
-//			try {
-//				confirmToPayOrder();
-//			} catch (Exception exp) {
-//				System.out.println(exp);
-//			}
-//		});
+//		cardNumber.setText("kscq1_group11_2021");
+//		cardHolder.setText("Group 11");
+//		expirationDate.setText("11/25");
+
 	}
 	
 	public void display() {

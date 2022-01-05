@@ -155,6 +155,7 @@ public class RentInfo {
 					" where isComplete = " + 0 + " ;";
 			Statement stm = EcobikeDB.getConnection().createStatement();
 			ResultSet res = stm.executeQuery(sql);
+			int id;
 			int bikeId = 0;
 			LocalDateTime startTime;
 			LocalDateTime endTime;
@@ -164,6 +165,7 @@ public class RentInfo {
 			int returnDockId;
 			int returnCellId;
 			if(res.next()) {
+				id = res.getInt("id");
 				bikeId = res.getInt("BIKEid");
 				LocalDateTime startTimeString =LocalDateTime.parse(res.getString("startTime"));
 				System.out.println("ngay bat dau: lay tu CSDL "+ res.getString("startTime"));
@@ -183,7 +185,7 @@ public class RentInfo {
 				System.out.println("thong tin xe dap: " + bike.toString());
 //				rentInfo.setBike(bike);
 				int depopsitAmount = bike.getComposit();
-				rentInfo = new RentInfo(bikeId,startTime,rentType,
+				rentInfo = new RentInfo(id,startTime,rentType,
 						rentedPeriod,depopsitAmount,bike,false,returnDockId,returnCellId);
 							
 			}
@@ -319,7 +321,7 @@ public class RentInfo {
 		try {
 			String sql = "SELECT * FROM CARD"+
 					" where number = " +
-					"(SELECT DISTINCT CARDnumber FROM PAYMENT_TRANSACTION where RENT_INFOid = " + this.id + ")"; 
+					"(SELECT DISTINCT cardNum FROM PAYMENT_TRANSACTION where rentInfoId = " + this.id + ")"; 
 			Statement stm = EcobikeDB.getConnection().createStatement();
 			ResultSet res = stm.executeQuery(sql);
 			String number;
@@ -329,9 +331,8 @@ public class RentInfo {
 			if(res.next()) {
 				number = res.getString("number");
 				cardHolder = res.getString("cardHolder");
-				issuingBank = res.getString("issuingBank");
 				dateExpired = res.getString("expiratonDate");	
-				card = new CreditCard(number,cardHolder,issuingBank,dateExpired);
+				card = new CreditCard(number,cardHolder,"",dateExpired);
 				System.out.println("thong tin CreditCard: " + "number: "+ number + " cardHolder : " + cardHolder);			
 			}
 
