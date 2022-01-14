@@ -109,3 +109,29 @@ Thiết kế InterBank interface
 
     Cả 3 thành viên họp một buổi để review phần làm của từng người
  
+# Lab 4 - Lập trình 
+## Tasks
+    (1) Tạo csdl, dữ liệu giả, viết các lớp entity, xem xe
+	
+    (2) Viết phần thuê xe, trả xe, lưu thông tin giao dịch 
+	
+    (3) Viết phần thanh toán, đặt cọc, validate thông tin nhập vào
+    
+    (4) Kiểm thử
+
+## Contribution
+
+    + Duyên: (3), (4)
+    + Vân: (1), (4)
+    + Thắm: (2), (4)
+    
+# Lab 5 - Design Consideration 
+## Tasks
+    (1) Refactor lại code 
+    (2) Chỉnh sửa lại code và bản thiết kế theo các nguyên lý thiết kế đã học
+    
+
+## Contribution
+
+    + Cả ba ngồi làm và sửa code
+
